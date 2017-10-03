@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Registrarse</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link href="css/custom.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  <div class="container">
+  <header>
+    <div class="col-md-6 col-md-offset-3">
+     <div class="logo">
+      <img class="img-responsive center-block" src="imgs/logo.png">
+     </div>
+    </div>
+   </header>
+   </div>
+   <div class="container">
+	<div class="row">
+        <a href="index.html" class="btn btn-success a-home">
+            <i class="fa fa-arrow-left"></i>
+            Volver
+        </a>
+		<section class="col-md-6 col-md-offset-3">
+          <h2 class="green-text"><span><img src="imgs/icon-4.png"></span>Registro Mercaldas</h2>
+            <div class="wizard">
+                <div class="wizard-inner">
+                    <div class="connecting-line"></div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active">
+                            <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Paso 1">
+                                <span class="round-tab">
+                                    1
+                                </span>
+                            </a>
+                        </li>
+                        <li role="presentation" class="disabled">
+                            <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Paso 2">
+                                <span class="round-tab">
+                                    2
+                                </span>
+                            </a>
+                        </li>
+                        <li role="presentation" class="disabled">
+                            <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Paso 3">
+                                <span class="round-tab">
+                                    3
+                                </span>
+                            </a>
+                        </li>
+                        <li role="presentation" class="disabled">
+                            <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Completado, enviar">
+                                <span class="round-tab">
+                                    4
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <form role="form" action="new_register.php" method="post">
+                    <div class="tab-content">
+                        <div class="tab-pane active" role="tabpanel" id="step1">
+                          <div class="form">
+                             <!-- Campo oculto que después se reemplaza -->
+                            <input class="form-control" value="000000" name="codigo" type="hidden">
+                            <!-- Cada campo -->
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Nombre completo" name="nombre" type="text">
+                            </div>
+                            <!-- Cada campo -->
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Cedula" name="cedula" type="number">
+                            </div>
+                            <!-- Cada campo -->
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Profesión" name="profesion" type="text">
+                            </div>
+                            <!-- Cada campo -->
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Empresa donde labora" name="empresa" type="text">
+                            </div>
+                          </div>
+                            <ul class="list-inline pull-right">
+                                <li><button type="button" class="button1 next-step">Siguiente</button></li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane" role="tabpanel" id="step2">
+                            <div class="form">
+                                <!-- Cada campo -->
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Direccion" name="direccion" type="text">
+                                </div>
+                                <!-- Cada campo -->
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Barrio" name="barrio" type="text">
+                                </div>
+                                <!-- Cada campo -->
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="E-mail" name="email" type="text">
+                                </div>
+                                <!-- Cada campo -->
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Teléfono fijo" name="telefono" type="number">
+                                </div>
+                            </div>
+                            <ul class="list-inline pull-right">
+                                <li><button type="button" class="button1 prev-step">Anterior</button></li>
+                                <li><button type="button" class="button1 next-step">Siguiente</button></li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane" role="tabpanel" id="step3">
+                            <div class="form">
+                                <!-- Cada campo -->
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Numero de celular" name="celular" type="number">
+                                </div>
+                                <!-- Cada campo -->
+                                <div class="form-group">
+                                    <input class="form-control" name="fechaNacimiento" type="date">
+                                </div>
+                                <!-- Cada campo -->
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Número de hijos" name="nohijos" type="number">
+                                </div>
+                                <!-- Campo oculto que después se reemplaza -->
+                                <input class="form-control" value="00" name="sucursal" type="hidden">
+                                <!-- Cada campo -->
+                                <div class="form-group">
+                                    <select name="sexo" class="form-control">
+                                        <option value="default">Seleccione...</option>
+                                        <option value="m">Masculino</option>
+                                        <option value="f">Femenino</option>
+                                        <option value="i">Indefinido</option>
+                                    </select>
+                                </div>
+                                <!-- Campo oculto que después se reemplaza -->
+                                <input class="form-control" value="00" name="puntos" type="hidden">
+                                <!-- Campo oculto que después se reemplaza -->
+                                <input class="form-control" value="00" name="habeasData" type="hidden">
+                                <!-- Campo oculto que después se reemplaza -->
+                                <input class="form-control" value="00" name="clubVino" type="hidden">
+                                <!-- Campo oculto que después se reemplaza -->
+                                <input class="form-control" value="00" name="avvillas" type="hidden">
+                            </div>
+                            <ul class="list-inline pull-right">
+                                <li><button type="button" class="button1 prev-step">Anterior</button></li>
+                                <li><button type="button" class="button1 next-step">Siguiente</button></li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane" role="tabpanel" id="complete">
+                            <h3>Complete</h3>
+                            <p>Haz completado todos los campos. ¿Deseas guardar los cambios?</p>
+                            <ul class="list-inline pull-right">
+                                <li>
+                                    <button class="button1 btn-info-full next-step" type="submit">
+                                        <i class="fa fa-send"></i>
+                                        &nbsp Enviar
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </form>
+            </div>
+        </section>
+   </div>
+</div>
+  </div>
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/custom.js"></script>
+    
+  </body>
+</html>
