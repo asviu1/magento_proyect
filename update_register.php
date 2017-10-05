@@ -1,5 +1,4 @@
-<?php  
-
+<?php
 	if($_GET){
 
         include "conexion_bd.php";
@@ -16,11 +15,18 @@
 		if($row == ""){
 			echo "<script>
 					alert('Datos inexistentes');
-					location.replace('index.html');
+					location.replace('index.php');
 				  </script>";
 		}
-	}
 
+        session_start();
+
+	} else {
+        echo "<script>
+                    alert('Error en la consulta');
+                    location.replace('login.php');
+                  </script>";
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,10 +49,22 @@
    </div>
    <div class="container">
     	<div class="row">
-            <a href="index.html" class="btn btn-success a-home">
-                <i class="fa fa-arrow-left"></i>
-                Volver
-            </a>
+            <?php
+
+                # Validación de que tipo de usuario está actualizando, para que el botón volver regrese a donde en realidad debe de hacerlo
+                if($_SESSION['document'] != "2121212"){
+                    echo "<a href='dashboard.php' class='btn btn-success a-home'>
+                            <i class='fa fa-arrow-left'></i>
+                            Volver
+                          </a>";
+                } else {
+                    echo "<a href='dashboard-admin.php' class='btn btn-success a-home'>
+                            <i class='fa fa-arrow-left'></i>
+                            Volver
+                          </a>";
+                }
+
+            ?>
     		<section class="col-md-6 col-md-offset-3">
               <h2 class="green-text"><span><img src="imgs/edit.png"></span> Actualizacion datos</h2>
                 <div class="wizard">
@@ -106,15 +124,24 @@
                                     	   value="<?= $row['cedula']; ?>" 
                                            placeholder="Cedula" 
                                            name="cedula" 
-                                           type="number">
+                                           type="number"
+                                           readonly>
                                 </div>
                                 <!-- Cada campo -->
                                 <div class="form-group">
                                     <input class="form-control"
-                                    	   value="<?= $row['profesion']; ?>" 
+                                    	   value="<?= $row['contrasena']; ?>" 
                                     	   placeholder="Profesión" 
-                                    	   name="profesion" 
+                                    	   name="contrasena" 
                                     	   type="text">
+                                </div>
+                                 <!-- Cada campo -->
+                                <div class="form-group">
+                                    <input class="form-control"
+                                           value="<?= $row['profesion']; ?>" 
+                                           placeholder="Profesión" 
+                                           name="profesion" 
+                                           type="text">
                                 </div>
                                 <!-- Cada campo -->
                                 <div class="form-group">
@@ -241,10 +268,11 @@
 
                             include "conexion_bd.php";
 
-                            # Recolección de datos.
+                            # Recolección de datos. 
                             $codigo          = $_POST['codigo'];
                             $nombre          = $_POST['nombre'];
                             $cedula          = $_POST['cedula'];
+                            $contrasena      = $_POST['contrasena'];
                             $profesion       = $_POST['profesion'];
                             $empresa         = $_POST['empresa'];
                             $direccion       = $_POST['direccion'];
@@ -262,21 +290,20 @@
                             $avvillas        = $_POST['avvillas'];
 
                             # Condicional que los datos no vengan vacios. 
-                            if($codigo != "" && $nombre != "" && $cedula != "" && $profesion != "" &&  $empresa != "" &&  $direccion != "" &&  $barrio != "" &&  $email != "" &&  $telefono != "" &&  $celular != "" &&  $fechaNacimiento != "" &&  $nohijos != "" &&  $sucursal != "" &&  $sexo != "default" && $puntos != "" &&  $habeasData != "" &&  $clubVino != "" &&  $avvillas != ""){
+                            if($codigo != "" && $nombre != "" && $cedula != "" && $contrasena != "" && $profesion != "" &&  $empresa != "" &&  $direccion != "" &&  $barrio != "" &&  $email != "" &&  $telefono != "" &&  $celular != "" &&  $fechaNacimiento != "" &&  $nohijos != "" &&  $sucursal != "" &&  $sexo != "default" && $puntos != "" &&  $habeasData != "" &&  $clubVino != "" &&  $avvillas != ""){
 
                                 # SQL de actualizar los datos.
-                                $sql = "UPDATE clientes SET codigo = '$codigo', nombre = '$nombre', cedula = '$cedula', profesion = '$profesion', empresa = '$empresa', direccion = '$direccion', barrio = '$barrio', email = '$email', telefono = '$telefono', celular = '$celular', fechaNacimiento = '$fechaNacimiento', nohijos = '$nohijos', sucursal = '$sucursal', sexo = '$sexo', puntos = '$puntos', habeasData = '$habeasData', clubVino = '$clubVino', avvillas = '$avvillas' WHERE cedula = $cedula";
+                                $sql = "UPDATE clientes SET codigo = '$codigo', nombre = '$nombre', cedula = '$cedula', contrasena = '$contrasena', profesion = '$profesion', empresa = '$empresa', direccion = '$direccion', barrio = '$barrio', email = '$email', telefono = '$telefono', celular = '$celular', fechaNacimiento = '$fechaNacimiento', nohijos = '$nohijos', sucursal = '$sucursal', sexo = '$sexo', puntos = '$puntos', habeasData = '$habeasData', clubVino = '$clubVino', avvillas = '$avvillas' WHERE cedula = $cedula";
 
                                 #Condicional si fué efectuoso el actualizar los datos
                                 if(mysqli_query($con, $sql)){
                                     echo "<script>
                                             alert('Se modificó con éxito');
-                                            location.replace('index.html');
+                                            location.replace('cerrar_session.php');
                                           </script>";
                                 } else {
                                     echo "<script>
                                             alert('Ocurrió un error, por favor vuelve a intentarlo');
-                                            location.replace('index.html');
                                           </script>";
                                 }
 

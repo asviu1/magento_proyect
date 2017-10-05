@@ -1,9 +1,7 @@
 <?php
-	
 	if($_FILES){
 
 		include "conexion_bd.php";
-
 		# Recolección de datos
 		$nfile     = $_POST['date'];
 		$path      = $_FILES['file']['name'];
@@ -54,7 +52,7 @@
 					if(mysqli_query($con, $sql)){
 						echo "<script>
 						alert('Se insertó con éxito');
-						location.replace('index.html');
+						location.replace('dashboard.php');
 						</script>";
 					} else {
 						echo "<script>
@@ -88,7 +86,7 @@
 					if(mysqli_query($con, $sql)){
 						echo "<script>
 						alert('Se insertó con éxito');
-						location.replace('index.html');
+						location.replace('dashboard.php');
 						</script>";
 					} else {
 						echo "<script>
@@ -118,7 +116,7 @@
 					if(mysqli_query($con, $sql)){
 						echo "<script>
 						alert('Se insertó con éxito');
-						location.replace('index.html');
+						location.replace('dashboard.php');
 						</script>";
 					} else {
 						echo "<script>
@@ -165,7 +163,7 @@
 					if(mysqli_query($con, $sql)){
 						echo "<script>
 						alert('Se insertó con éxito');
-						location.replace('index.html');
+						location.replace('dashboard.php');
 						</script>";
 					} else {
 						echo "<script>
@@ -176,13 +174,20 @@
 
 			}
 
-		} 
+		}
+
 		# Aquí valida del lado del servidor que no ha seleccionado ninguna categoria
 		else {
 			echo "<script>
 				alert('No se puede insertar datos si no se selecciona una categoria');
-				location.replace('index.html');
+				location.replace('dashboard.php');
 				</script>";
 		}
+	} else {
+		echo "<script>
+				alert('Accion denegada, vuelva a intentarlo.');
+				location.replace('dashboard.php');
+			  </script>";
+
 	}
 ?>

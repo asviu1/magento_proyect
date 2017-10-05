@@ -1,5 +1,4 @@
-<?php  
-
+<?php
 	if($_POST) {
 		
 		include "conexion_bd.php";
@@ -14,15 +13,15 @@
 
 		if($row == ""){
 			echo "<script>
-			alert('El documento ingresado no existe en el sistema');
-			location.replace('index.html');
-			</script>";
+					alert('El documento ingresado no existe en el sistema');
+					location.replace('dashboard.php');
+				 </script>";
 		}
 	} else {
 		echo "<script>
-		alert('No hay datos para la consulta');
-		location.replace('index.html');
-		</script>";
+				alert('No hay datos para la consulta');
+				location.replace('dashboard.php');
+			  </script>";
 	}
 ?>
 <!DOCTYPE html>
@@ -38,12 +37,12 @@
 <body>
 	<div class="container-fluid">
 		<div class="row">
-			<a href="index.html" class="btn btn-success a-home">
+			<a href="dashboard.php" class="btn btn-success a-home">
 				<i class="fa fa-arrow-left"></i>
 				Volver
 			</a>
 			<div class="col-lg-offset-4 col-lg-4 col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6 div-container border-black">
-				<a href="index.html">
+				<a href="index.php">
 					<div class="col-lg-12 bg-img border-black"></div>
 				</a>
 				<h1 class="text-center">Tus puntos...</h1>

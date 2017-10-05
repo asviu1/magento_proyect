@@ -29,7 +29,7 @@
    </div>
    <div class="container">
 	<div class="row">
-        <a href="index.html" class="btn btn-success a-home">
+        <a href="index.php" class="btn btn-success a-home">
             <i class="fa fa-arrow-left"></i>
             Volver
         </a>
@@ -77,42 +77,76 @@
                             <input class="form-control" value="000000" name="codigo" type="hidden">
                             <!-- Cada campo -->
                             <div class="form-group">
-                                <input class="form-control" placeholder="Nombre completo" name="nombre" type="text">
+                                <input class="form-control" 
+                                       placeholder="Nombre completo" 
+                                       name="nombre" 
+                                       type="text"
+                                       required>
                             </div>
                             <!-- Cada campo -->
                             <div class="form-group">
-                                <input class="form-control" placeholder="Cedula" name="cedula" type="number">
+                                <input class="form-control" 
+                                       placeholder="Cedula" 
+                                       name="cedula" 
+                                       type="number"
+                                       required>
                             </div>
                             <!-- Cada campo -->
                             <div class="form-group">
-                                <input class="form-control" placeholder="Profesión" name="profesion" type="text">
+                                <input class="form-control" 
+                                       placeholder="Profesión" 
+                                       name="profesion" 
+                                       type="text"
+                                       required>
                             </div>
                             <!-- Cada campo -->
                             <div class="form-group">
-                                <input class="form-control" placeholder="Empresa donde labora" name="empresa" type="text">
+                                <input class="form-control" 
+                                       placeholder="Empresa donde labora" 
+                                       name="empresa"
+                                       type="text"
+                                       required>
                             </div>
                           </div>
                             <ul class="list-inline pull-right">
-                                <li><button type="button" class="button1 next-step">Siguiente</button></li>
+                                <li>
+                                    <button type="button" class="button1 next-step">Siguiente</button>
+                                </li>
                             </ul>
                         </div>
                         <div class="tab-pane" role="tabpanel" id="step2">
                             <div class="form">
                                 <!-- Cada campo -->
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Direccion" name="direccion" type="text">
+                                    <input class="form-control" 
+                                           placeholder="Direccion" 
+                                           name="direccion" 
+                                           type="text"
+                                           required>
                                 </div>
                                 <!-- Cada campo -->
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Barrio" name="barrio" type="text">
+                                    <input class="form-control" 
+                                           placeholder="Barrio" 
+                                           name="barrio" 
+                                           type="text"
+                                           required>
                                 </div>
                                 <!-- Cada campo -->
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="text">
+                                    <input class="form-control" 
+                                           placeholder="E-mail" 
+                                           name="email" 
+                                           type="email"
+                                           required>
                                 </div>
                                 <!-- Cada campo -->
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Teléfono fijo" name="telefono" type="number">
+                                    <input class="form-control" 
+                                           placeholder="Teléfono fijo" 
+                                           name="telefono" 
+                                           type="number"
+                                           required>
                                 </div>
                             </div>
                             <ul class="list-inline pull-right">
@@ -124,21 +158,31 @@
                             <div class="form">
                                 <!-- Cada campo -->
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Numero de celular" name="celular" type="number">
+                                    <input class="form-control" 
+                                           placeholder="Numero de celular" 
+                                           name="celular" 
+                                           type="number"
+                                           required>
                                 </div>
                                 <!-- Cada campo -->
                                 <div class="form-group">
-                                    <input class="form-control" name="fechaNacimiento" type="date">
+                                    <input class="form-control" 
+                                           name="fechaNacimiento" 
+                                           type="date"
+                                           required>
                                 </div>
                                 <!-- Cada campo -->
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Número de hijos" name="nohijos" type="number">
+                                    <input class="form-control" 
+                                           placeholder="Número de hijos" 
+                                           name="nohijos" 
+                                           type="number">
                                 </div>
                                 <!-- Campo oculto que después se reemplaza -->
                                 <input class="form-control" value="00" name="sucursal" type="hidden">
                                 <!-- Cada campo -->
                                 <div class="form-group">
-                                    <select name="sexo" class="form-control">
+                                    <select name="sexo" class="form-control" required>
                                         <option value="default">Seleccione...</option>
                                         <option value="m">Masculino</option>
                                         <option value="f">Femenino</option>

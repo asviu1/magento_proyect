@@ -1,5 +1,4 @@
-<?php  
-	
+<?php
 	# Validación si llegó algo por post
 	if($_POST){
 
@@ -43,8 +42,14 @@
 		} else {
 			echo "<script>
 				alert('Por favor seleccione una categoria');
-				location.replace('index.html');
+				location.replace('dashboard.php');
 				</script>";
 		}
+	} else {
+		echo "<script>
+				alert('Accion denegada, vuelva a intentarlo.');
+				location.replace('dashboard.php');
+			  </script>";
 	}
+
 ?>
