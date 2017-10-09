@@ -42,13 +42,13 @@
 		} else {
 			echo "<script>
 				alert('Por favor seleccione una categoria');
-				location.replace('dashboard.php');
+				location.replace('dashboard-admin.php');
 				</script>";
 		}
 	} else {
 		echo "<script>
 				alert('Accion denegada, vuelva a intentarlo.');
-				location.replace('dashboard.php');
+				location.replace('dashboard-admin.php');
 			  </script>";
 	}
 

@@ -37,22 +37,22 @@
 					$telefono         = trim($datos[8]);
 					$celular          = trim($datos[9]);
 					$fechaNacimiento  = trim($datos[10]);
-					$nohijos          = trim($datos[11]);
-					$sucursal         = trim($datos[12]);
-					$sexo             = trim($datos[13]);
-					$puntos           = trim($datos[14]);
+					$fechaCumple      = trim($datos[11]);
+					$nohijos          = trim($datos[12]);
+					$sucursal         = trim($datos[13]);
+					$sexo             = trim($datos[14]);
 					$habeasData       = trim($datos[15]);
 					$clubVino         = trim($datos[16]);
 					$avvillas         = trim($datos[17]);
 
 					# Prueba para ver si está tomando los datos del archivo plano.
 
-					$sql = "INSERT INTO clientes VALUES ($codigo','$nombre','$cedula','$profesion','$empresa','$direccion','$barrio','$email','$telefono','$celular','$fechaNacimiento','$nohijos','$sucursal','$sexo','$puntos','$habeasData','$clubVino','$avvillas')";
+					$sql = "INSERT INTO clientes VALUES('$codigo', '$nombre', '$cedula', '$profesion', '$empresa', '$direccion', '$barrio', '$email', '$telefono', '$celular', '$fechaNacimiento', '$fechaCumple', '$nohijos', '$sucursal', '$sexo', '$habeasData', '$clubVino', '$avvillas')";
 
 					if(mysqli_query($con, $sql)){
 						echo "<script>
 						alert('Se insertó con éxito');
-						location.replace('dashboard.php');
+						location.replace('dashboard-admin.php');
 						</script>";
 					} else {
 						echo "<script>
@@ -86,7 +86,7 @@
 					if(mysqli_query($con, $sql)){
 						echo "<script>
 						alert('Se insertó con éxito');
-						location.replace('dashboard.php');
+						location.replace('dashboard-admin.php');
 						</script>";
 					} else {
 						echo "<script>
@@ -108,15 +108,16 @@
 					$codigo           = trim($datos[0]);
 					$cedula           = trim($datos[1]);
 					$puntos           = trim($datos[2]);
+					$fecha            = trim($datos[3]);
 
 					# Prueba para ver si está tomando los datos del archivo plano.
 
-					$sql = "INSERT INTO puntos VALUES ('$codigo','$cedula','$puntos')";
+					$sql = "INSERT INTO puntos VALUES ('$codigo','$cedula','$puntos','$fecha')";
 
 					if(mysqli_query($con, $sql)){
 						echo "<script>
 						alert('Se insertó con éxito');
-						location.replace('dashboard.php');
+						location.replace('dashboard-admin.php');
 						</script>";
 					} else {
 						echo "<script>
@@ -163,7 +164,7 @@
 					if(mysqli_query($con, $sql)){
 						echo "<script>
 						alert('Se insertó con éxito');
-						location.replace('dashboard.php');
+						location.replace('dashboard-admin.php');
 						</script>";
 					} else {
 						echo "<script>
@@ -180,13 +181,13 @@
 		else {
 			echo "<script>
 				alert('No se puede insertar datos si no se selecciona una categoria');
-				location.replace('dashboard.php');
+				location.replace('dashboard-admin.php');
 				</script>";
 		}
 	} else {
 		echo "<script>
 				alert('Accion denegada, vuelva a intentarlo.');
-				location.replace('dashboard.php');
+				location.replace('dashboard-admin.php');
 			  </script>";
 
 	}

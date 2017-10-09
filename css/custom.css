@@ -738,3 +738,25 @@ a.a-home{
   top:3%;
   position:absolute;
 }
+
+/* Styles of Jquery validator  */
+/******************************/
+div.form-group{
+  position:relative;
+  margin-bottom:22px;
+}
+span.help-block.form-error{
+  color:rgb(170,0,0);
+  position:absolute;
+  padding:4px;
+  top:-30px;
+  left:0px;
+  width:100%;
+}
+form input.error{
+  border:1px solid rgba(205,0,0, 0.1);
+  background: rgba(205,0,0, 0.15);
+}
+form input.valid{
+  background: rgba(0,205,0,0.15);
+}

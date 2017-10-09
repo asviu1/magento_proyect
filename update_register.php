@@ -23,9 +23,9 @@
 
 	} else {
         echo "<script>
-                    alert('Error en la consulta');
-                    location.replace('login.php');
-                  </script>";
+                alert('Error en la consulta');
+                location.replace('login.php');
+              </script>";
     }
 ?>
 <!DOCTYPE html>
@@ -127,14 +127,6 @@
                                            type="number"
                                            readonly>
                                 </div>
-                                <!-- Cada campo -->
-                                <div class="form-group">
-                                    <input class="form-control"
-                                    	   value="<?= $row['contrasena']; ?>" 
-                                    	   placeholder="Profesión" 
-                                    	   name="contrasena" 
-                                    	   type="text">
-                                </div>
                                  <!-- Cada campo -->
                                 <div class="form-group">
                                     <input class="form-control"
@@ -209,9 +201,9 @@
                                     <!-- Cada campo -->
                                     <div class="form-group">
                                         <input class="form-control"
-                                        	   value="<?= $row['fechaNacimiento']; ?>" 
-                                        	   name="fechaNacimiento" 
-                                        	   type="text">
+                                        	   value="<?= $row['fechaCumple']; ?>" 
+                                        	   name="fechaCumple" 
+                                        	   type="date">
                                     </div>
                                     <!-- Cada campo -->
                                     <div class="form-group">
@@ -272,7 +264,6 @@
                             $codigo          = $_POST['codigo'];
                             $nombre          = $_POST['nombre'];
                             $cedula          = $_POST['cedula'];
-                            $contrasena      = $_POST['contrasena'];
                             $profesion       = $_POST['profesion'];
                             $empresa         = $_POST['empresa'];
                             $direccion       = $_POST['direccion'];
@@ -280,20 +271,23 @@
                             $email           = $_POST['email'];
                             $telefono        = $_POST['telefono'];
                             $celular         = $_POST['celular'];
-                            $fechaNacimiento = $_POST['fechaNacimiento'];
+                            $fechaCumple     = $_POST['fechaCumple'];
                             $nohijos         = $_POST['nohijos'];
                             $sucursal        = $_POST['sucursal'];
                             $sexo            = $_POST['sexo'];
-                            $puntos          = $_POST['puntos'];
                             $habeasData      = $_POST['habeasData'];
                             $clubVino        = $_POST['clubVino'];
                             $avvillas        = $_POST['avvillas'];
 
+                            # Conversión de la variable tipo fecha a entero
+                            $variable        = strtotime($fechaCumple);
+                            $fechaNacimiento = idate('d', $variable).idate('m', $variable);
+
                             # Condicional que los datos no vengan vacios. 
-                            if($codigo != "" && $nombre != "" && $cedula != "" && $contrasena != "" && $profesion != "" &&  $empresa != "" &&  $direccion != "" &&  $barrio != "" &&  $email != "" &&  $telefono != "" &&  $celular != "" &&  $fechaNacimiento != "" &&  $nohijos != "" &&  $sucursal != "" &&  $sexo != "default" && $puntos != "" &&  $habeasData != "" &&  $clubVino != "" &&  $avvillas != ""){
+                            if($codigo != "" && $nombre != "" && $cedula != "" && $profesion != "" &&  $empresa != "" &&  $direccion != "" &&  $barrio != "" &&  $email != "" &&  $telefono != "" &&  $celular != "" &&  $fechaNacimiento != "" &&  $nohijos != "" &&  $sucursal != "" &&  $sexo != "default" &&  $habeasData != "" &&  $clubVino != "" &&  $avvillas != ""){
 
                                 # SQL de actualizar los datos.
-                                $sql = "UPDATE clientes SET codigo = '$codigo', nombre = '$nombre', cedula = '$cedula', contrasena = '$contrasena', profesion = '$profesion', empresa = '$empresa', direccion = '$direccion', barrio = '$barrio', email = '$email', telefono = '$telefono', celular = '$celular', fechaNacimiento = '$fechaNacimiento', nohijos = '$nohijos', sucursal = '$sucursal', sexo = '$sexo', puntos = '$puntos', habeasData = '$habeasData', clubVino = '$clubVino', avvillas = '$avvillas' WHERE cedula = $cedula";
+                                $sql = "UPDATE clientes SET codigo = '$codigo', nombre = '$nombre', cedula = '$cedula', profesion = '$profesion', empresa = '$empresa', direccion = '$direccion', barrio = '$barrio', email = '$email', telefono = '$telefono', celular = '$celular', fechaNacimiento = '$fechaNacimiento', fechaCumple = '$fechaCumple', nohijos = '$nohijos', sucursal = '$sucursal', sexo = '$sexo', habeasData = '$habeasData', clubVino = '$clubVino', avvillas = '$avvillas' WHERE cedula = $cedula";
 
                                 #Condicional si fué efectuoso el actualizar los datos
                                 if(mysqli_query($con, $sql)){

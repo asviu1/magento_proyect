@@ -1,3 +1,8 @@
+<?php 
+	#Acá se destroye la variable de session $_SESSION['cedula'] por si le da click a volver
+	session_start();
+	session_destroy();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,6 +48,10 @@
 				#En la variable $row se almacena como un arreglo todo lo que se retorno de la BD
 				$row = mysqli_fetch_array($sql);
 
+				session_start();
+				#Declaracion de la variable que envia la cédula. 
+				$_SESSION['cedula'] = $row['cedula'];
+
 				echo "<script>
 						alert('Su documento está en la Base de Datos, por favor ingrese');
 						location.replace('login.php');
@@ -50,7 +59,7 @@
 			} else {
 				echo "<script>
 						alert('Su documento no existe en la Base de Datos, por favor regístrese');
-						location.replace('registro.html');
+						location.replace('registro.php');
 					 </script>";
 			}
 		}

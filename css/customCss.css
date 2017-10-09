@@ -39,18 +39,32 @@ h3.main-title{
 	color: #008136;
 	font-weight: bolder;
 	font-style: italic;
+	margin-top:0px;
 }
-form#login{
+h4.faker-place{
+	color:rgba(0,0,0,0.5);
+	font-style: italic;
+	font-size:16px;
+	font-family: Calibri;
+	letter-spacing: -1px;
+	margin-top: 20px;
+
+}
+form#date{
 	margin-top: 40px;
 }
+
+div.date_wrapper{
+	margin:0px auto;
+}
 .form-custom{
-	width:65%;
+	width:80%;
 	margin: 0px auto;
 	background:white;
 	border-top:none;
 	border-left:none;
 	border-right:none;
-	border-bottom:1px solid #ccc;
+	border-bottom:1px solid #018136;
 	border-radius:0px;
 	font-family: Calibri;
 	text-align: center;
@@ -96,7 +110,7 @@ p.information{
 	margin-top: 10px;
 	text-align: center;
 }
-/* Dashboar estilos */
+/* Dashboard estilos */
 /*************************************/
 .border-black{
 	/*border:1px solid black;*/
@@ -105,8 +119,7 @@ div.bg-img{
 	background:url(../imgs/logo.png) no-repeat center center;
 	-webkit-background-size: contain;
 	background-size: contain;
-	height:200px;
-	margin-bottom: 5%;
+	height:150px;
 }
 h3.main-title-user{
 	text-align: center;
@@ -151,20 +164,35 @@ i.right{
 	color:white;
 	font-size:20px;
 }
+i.left{
+	float:left;
+	line-height: 40px;
+}
 /* Estilos formulario */
-form#form-crono, form#form-search, form#form-archivo, form#form-update{
+form#form-crono, form#form-archivo, form#form-update, div#form-search{
 	display: none;
 	border-radius:5px;
 	width:100%;
 }
 form#form-crono{
-	padding:40px 40px;
+	padding:10px 40px 0px 40px;
 }
-form#form-search{
-	padding:40px 40px;
+h1.numeric-result{
+	background-color: #ffef00;
+	color:#008136;
+	margin:0px auto;
+	padding: 10px 0px;
+	text-align: center;
+	width:50%;
+	border-radius: 12px;
+  	-moz-border-radius: 12px;
+  	-webkit-border-radius: 12px;
+	-webkit-transform: skew(-10deg);
+	-moz-transform: skew(-10deg);
+	-o-transform: skew(-10deg);
 }
 form#form-archivo{
-	padding:20px 40px;
+	padding:10px 40px 0px 40px;
 }
 form#form-update{
 	padding:20px 40px;
