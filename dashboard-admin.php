@@ -31,19 +31,19 @@
 					</a>
 					<!-- Boton para actualizar la info-->
 					<a href="update_register.php?cedula=<?= $_SESSION['document'];?>" class="col-lg-12 second-button button" type="button">
-						<i class="fa fa-pencil i-white"></i>
-						&nbsp Actualizar informacion
-						<i class="fa fa-plus right i-white right"></i>
+						<i class="fa fa-pencil i-white left"></i>
+						&nbsp Actualizar datos
+						<i class="fa fa-plus right i-white"></i>
 					</a>
 					<!-- Boton de apertura de los archivos-->
-					<a class="col-lg-12 first-button button" id="archivoOpen">
-						<i class="fa fa-file-archive-o i-white"></i>
+					<a class="col-lg-12 col-md-12 col-sm-12 col-xs-12 first-button button" id="archivoOpen">
+						<i class="fa fa-file-archive-o i-white left"></i>
 						&nbsp Archivos Base
 						<i class="fa fa-plus right i-white"></i>
 					</a>
 					<!-- Boton de cierre de los archivos-->
-					<a class="col-lg-12 first-button button" id="archivoClose">
-						<i class="fa fa-file-archive-o i-white"></i>
+					<a class="col-lg-12 col-md-12 col-sm-12 col-xs-12 first-button button" id="archivoClose">
+						<i class="fa fa-file-archive-o i-white left"></i>
 						&nbsp Archivos Base
 						<i class="fa fa-minus right i-white"></i>
 					</a>
@@ -65,14 +65,14 @@
 						</button>
 					</form>
 					<!-- Boton de apertura crono job-->
-					<a class="col-lg-12 first-button button" id="cronojobOpen">
-						<i class="fa fa-clock-o i-white"></i>
+					<a class="col-lg-12 col-md-12 col-sm-12 col-xs-12 first-button button" id="cronojobOpen">
+						<i class="fa fa-clock-o i-white left"></i>
 						&nbsp Cronojob
 						<i class="fa fa-plus right i-white"></i>
 					</a>
 					<!-- Boton de cierre crono job -->
-					<a class="col-lg-12 first-button button" id="cronojobClose">
-						<i class="fa fa-clock-o i-white"></i>
+					<a class="col-lg-12 col-md-12 col-sm-12 col-xs-12 first-button button" id="cronojobClose">
+						<i class="fa fa-clock-o i-white left"></i>
 						&nbsp Cronojob
 						<i class="fa fa-minus right i-white"></i>
 					</a>
@@ -103,6 +103,28 @@
 							<i class="fa fa-trash"></i> Reset
 						</button>
 					</form>
+					<!-- Boton de apertura segmentacion-->
+					<a class="col-lg-12 col-md-12 col-sm-12 col-xs-12 first-button button" id="segmOpen">
+						<i class="fa fa-filter i-white left"></i>
+						&nbsp Segmentación
+						<i class="fa fa-plus right i-white"></i>
+					</a>
+					<!-- Boton de cierre segmentacion -->
+					<a class="col-lg-12 col-md-12 col-sm-12 col-xs-12 first-button button" id="segmClose">
+						<i class="fa fa-filter i-white left"></i>
+						&nbsp Segmentación
+						<i class="fa fa-minus right i-white"></i>
+					</a>
+					<!-- Contenido segmentacion -->
+					<form action="" id="form-segmentacion">
+						<select name="" id="" class="form-control">
+							<option value="">option</option>
+						</select>
+					</form>
+				</div>
 			</div>
 		</div>
-	</div>
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/hidden_content.js"></script>
+</body>
+</html>

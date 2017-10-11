@@ -52,4 +52,17 @@ $(document).ready(function($) {
 		$('#closeActualizar').hide();
 		$('#openActualizar').show();
 	});
+	// Botón de la segmentacion
+	$('#segmOpen').click(function(event) {
+		$('#segmOpen').hide();
+		$('#form-segmentacion').css({
+			display: 'inline-block'
+		});
+		$('#segmClose').show();
+	});
+	$('#segmClose').click(function(event) {
+		$('#form-segmentacion').hide();
+		$('#segmClose').hide();
+		$('#segmOpen').show();
+	});
 });

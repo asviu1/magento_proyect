@@ -23,9 +23,9 @@
 
 	} else {
         echo "<script>
-                    alert('Error en la consulta');
-                    location.replace('login.php');
-                  </script>";
+                alert('Error en la consulta');
+                location.replace('login.php');
+              </script>";
     }
 ?>
 <!DOCTYPE html>
@@ -66,7 +66,7 @@
 
             ?>
     		<section class="col-md-6 col-md-offset-3">
-              <h2 class="green-text"><span><img src="imgs/edit.png"></span> Actualizacion datos</h2>
+              <h2 class="green-text text-center"><span><img src="imgs/edit.png"></span> Actualizacion datos</h2>
                 <div class="wizard">
                     <div class="wizard-inner">
                         <div class="connecting-line"></div>
@@ -126,14 +126,6 @@
                                            name="cedula" 
                                            type="number"
                                            readonly>
-                                </div>
-                                <!-- Cada campo -->
-                                <div class="form-group">
-                                    <input class="form-control"
-                                    	   value="<?= $row['contrasena']; ?>" 
-                                    	   placeholder="Profesión" 
-                                    	   name="contrasena" 
-                                    	   type="text">
                                 </div>
                                  <!-- Cada campo -->
                                 <div class="form-group">
@@ -209,28 +201,50 @@
                                     <!-- Cada campo -->
                                     <div class="form-group">
                                         <input class="form-control"
-                                        	   value="<?= $row['fechaNacimiento']; ?>" 
-                                        	   name="fechaNacimiento" 
-                                        	   type="text">
+                                        	   value="<?= $row['fechaCumple']; ?>" 
+                                        	   name="fechaCumple" 
+                                        	   type="date">
                                     </div>
                                     <!-- Cada campo -->
                                     <div class="form-group">
                                         <input class="form-control"
-                                        	   value="<?= $row['nohijos']; ?>"
-                                        	   placeholder="Número de hijos" 
-                                        	   name="nohijos" 
-                                        	   type="number">
+                                               value="<?= $row['nohijos']; ?>"
+                                               placeholder="Número de hijos" 
+                                               name="nohijos" 
+                                               type="number">
                                     </div>
-                                    <!-- Campo oculto que después se reemplaza -->
-                                    <input class="form-control" value="00" name="sucursal" type="hidden">
                                     <!-- Cada campo -->
                                     <div class="form-group">
-                                        <select name="sexo" class="form-control">
-                                            <option value="default">Seleccione...</option>
-                                            <option <?php if($row['sexo'] == "m"){ echo "selected"; } ?> value="m">Masculino</option>
-                                            <option <?php if($row['sexo'] == "f"){ echo "selected"; } ?> value="f">Femenino</option>
-                                            <option <?php if($row['sexo'] == "i"){ echo "selected"; } ?> value="i">Indefinido</option>
-                                        </select>
+                                      <select name="sucursal" id="sucursal" class="form-control">
+                                          <option value="default">Mercaldas donde realice sus compras...</option>
+                                          <option <?php if($row['sucursal'] == "0"){ echo "selected"; } ?> value="0">Electrodomésticos</option>
+                                          <option <?php if($row['sucursal'] == "1"){ echo "selected"; } ?> value="1">Centro</option>
+                                          <option <?php if($row['sucursal'] == "2"){ echo "selected"; } ?> value="2">Sultana</option>
+                                          <option <?php if($row['sucursal'] == "3"){ echo "selected"; } ?> value="3">La fuente</option>
+                                          <option <?php if($row['sucursal'] == "5"){ echo "selected"; } ?> value="5">Palmas</option>
+                                          <option <?php if($row['sucursal'] == "6"){ echo "selected"; } ?> value="6">Medicamentos</option>
+                                          <option <?php if($row['sucursal'] == "8"){ echo "selected"; } ?> value="8">Av. Kevin Angel</option>
+                                          <option <?php if($row['sucursal'] == "11"){ echo "selected"; } ?> value="11">Palermo</option>
+                                          <option <?php if($row['sucursal'] == "12"){ echo "selected"; } ?> value="12">San José</option>
+                                          <option <?php if($row['sucursal'] == "14"){ echo "selected"; } ?> value="14">Calleja</option>
+                                          <option <?php if($row['sucursal'] == "15"){ echo "selected"; } ?> value="15">Enea</option>
+                                          <option <?php if($row['sucursal'] == "16"){ echo "selected"; } ?> value="16">Villamaria</option>
+                                          <option <?php if($row['sucursal'] == "33"){ echo "selected"; } ?> value="33">Neira</option>
+                                          <option <?php if($row['sucursal'] == "43"){ echo "selected"; } ?> value="43">Central de Carnes</option>
+                                          <option <?php if($row['sucursal'] == "50"){ echo "selected"; } ?> value="50">Versalles</option>
+                                          <option <?php if($row['sucursal'] == "51"){ echo "selected"; } ?> value="51">Central de Abarrotes</option>
+                                          <option <?php if($row['sucursal'] == "52"){ echo "selected"; } ?> value="52">San Marcel</option>
+                                          <option <?php if($row['sucursal'] == "53"){ echo "selected"; } ?> value="53">Cent. Proc. Carnicos</option>
+                                          <option <?php if($row['sucursal'] == "54"){ echo "selected"; } ?> value="54">Central Fruver</option>
+                                          <option <?php if($row['sucursal'] == "55"){ echo "selected"; } ?> value="55">Suministros</option>
+                                          <option <?php if($row['sucursal'] == "58"){ echo "selected"; } ?> value="58">Central de Panaderia</option>
+                                          <option <?php if($row['sucursal'] == "68"){ echo "selected"; } ?> value="68">Central Panaderia Versalles</option>
+                                          <option <?php if($row['sucursal'] == "90"){ echo "selected"; } ?> value="90">Central</option>
+                                          <option <?php if($row['sucursal'] == "ch"){ echo "selected"; } ?> value="ch">Campo Hermoso</option>
+                                          <option <?php if($row['sucursal'] == "cr"){ echo "selected"; } ?> value="cr">Cristo Rey</option>
+                                          <option <?php if($row['sucursal'] == "lr"){ echo "selected"; } ?> value="lr">La Rochela</option>
+                                          <option <?php if($row['sucursal'] == "st"){ echo "selected"; } ?> value="st">Santagueda</option>
+                                      </select>
                                     </div>
                                     <!-- Campo oculto que después se reemplaza -->
                                     <input class="form-control" value="00" name="puntos" type="hidden">
@@ -247,8 +261,15 @@
                                 </ul>
                             </div>
                             <div class="tab-pane" role="tabpanel" id="complete">
-                                <h3>Complete</h3>
-                                <p>Haz completado todos los campos. ¿Deseas guardar los cambios?</p>
+                                <!-- Cada campo -->
+                                <div class="form-group">
+                                    <select name="sexo" class="form-control">
+                                        <option value="default">Seleccione...</option>
+                                        <option <?php if($row['sexo'] == "m"){ echo "selected"; } ?> value="m">Masculino</option>
+                                        <option <?php if($row['sexo'] == "f"){ echo "selected"; } ?> value="f">Femenino</option>
+                                        <option <?php if($row['sexo'] == "i"){ echo "selected"; } ?> value="i">Indefinido</option>
+                                    </select>
+                                </div>
                                 <ul class="list-inline pull-right">
                                     <li>
                                         <button class="button1 btn-info-full next-step" type="submit">
@@ -272,7 +293,6 @@
                             $codigo          = $_POST['codigo'];
                             $nombre          = $_POST['nombre'];
                             $cedula          = $_POST['cedula'];
-                            $contrasena      = $_POST['contrasena'];
                             $profesion       = $_POST['profesion'];
                             $empresa         = $_POST['empresa'];
                             $direccion       = $_POST['direccion'];
@@ -280,20 +300,23 @@
                             $email           = $_POST['email'];
                             $telefono        = $_POST['telefono'];
                             $celular         = $_POST['celular'];
-                            $fechaNacimiento = $_POST['fechaNacimiento'];
+                            $fechaCumple     = $_POST['fechaCumple'];
                             $nohijos         = $_POST['nohijos'];
                             $sucursal        = $_POST['sucursal'];
                             $sexo            = $_POST['sexo'];
-                            $puntos          = $_POST['puntos'];
                             $habeasData      = $_POST['habeasData'];
                             $clubVino        = $_POST['clubVino'];
                             $avvillas        = $_POST['avvillas'];
 
+                            # Conversión de la variable tipo fecha a entero
+                            $variable        = strtotime($fechaCumple);
+                            $fechaNacimiento = idate('d', $variable).idate('m', $variable);
+
                             # Condicional que los datos no vengan vacios. 
-                            if($codigo != "" && $nombre != "" && $cedula != "" && $contrasena != "" && $profesion != "" &&  $empresa != "" &&  $direccion != "" &&  $barrio != "" &&  $email != "" &&  $telefono != "" &&  $celular != "" &&  $fechaNacimiento != "" &&  $nohijos != "" &&  $sucursal != "" &&  $sexo != "default" && $puntos != "" &&  $habeasData != "" &&  $clubVino != "" &&  $avvillas != ""){
+                            if($codigo != "" && $nombre != "" && $cedula != "" && $profesion != "" &&  $empresa != "" &&  $direccion != "" &&  $barrio != "" &&  $email != "" &&  $telefono != "" &&  $celular != "" &&  $fechaNacimiento != "" &&  $nohijos != "" &&  $sucursal != "" &&  $sexo != "default" &&  $habeasData != "" &&  $clubVino != "" &&  $avvillas != ""){
 
                                 # SQL de actualizar los datos.
-                                $sql = "UPDATE clientes SET codigo = '$codigo', nombre = '$nombre', cedula = '$cedula', contrasena = '$contrasena', profesion = '$profesion', empresa = '$empresa', direccion = '$direccion', barrio = '$barrio', email = '$email', telefono = '$telefono', celular = '$celular', fechaNacimiento = '$fechaNacimiento', nohijos = '$nohijos', sucursal = '$sucursal', sexo = '$sexo', puntos = '$puntos', habeasData = '$habeasData', clubVino = '$clubVino', avvillas = '$avvillas' WHERE cedula = $cedula";
+                                $sql = "UPDATE clientes SET codigo = '$codigo', nombre = '$nombre', cedula = '$cedula', profesion = '$profesion', empresa = '$empresa', direccion = '$direccion', barrio = '$barrio', email = '$email', telefono = '$telefono', celular = '$celular', fechaNacimiento = '$fechaNacimiento', fechaCumple = '$fechaCumple', nohijos = '$nohijos', sucursal = '$sucursal', sexo = '$sexo', habeasData = '$habeasData', clubVino = '$clubVino', avvillas = '$avvillas' WHERE cedula = $cedula";
 
                                 #Condicional si fué efectuoso el actualizar los datos
                                 if(mysqli_query($con, $sql)){
