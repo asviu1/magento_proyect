@@ -14,6 +14,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Dashboard</title>
+	<link rel="icon" href="imgs/favicon.png" type="img/png">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/custom.css">
@@ -103,6 +104,12 @@
 							<i class="fa fa-trash"></i> Reset
 						</button>
 					</form>
+					<!-- Boton de Exportar nuevos usuarios en EXCEL-->
+					<a href="exportar_usuarios.php" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 first-button button">
+						<i class="fa fa-users i-white left"></i>
+						&nbsp Usuarios nuevos
+						<i class="fa fa-plus right i-white"></i>
+					</a>
 					<!-- Boton de apertura segmentacion-->
 					<a class="col-lg-12 col-md-12 col-sm-12 col-xs-12 first-button button" id="segmOpen">
 						<i class="fa fa-filter i-white left"></i>

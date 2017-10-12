@@ -14,6 +14,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Dashboard</title>
+	<link rel="icon" href="imgs/favicon.png" type="img/png">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/custom.css">

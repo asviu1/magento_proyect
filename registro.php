@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Registrarse</title>
+    <link rel="icon" href="imgs/favicon.png" type="img/png">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link href="css/custom.css" rel="stylesheet">
@@ -315,7 +316,7 @@
 
             # Conversión de la variable tipo fecha a entero
             $variable        = strtotime($fechaCumple);
-            $fechaNacimiento = idate('d', $variable).idate('m', $variable);
+            $fechaNacimiento = idate('m', $variable).idate('d', $variable);
 
             # Condicional que los datos no vengan vacios. 
             if($codigo != "" && $nombre != "" && $cedula != "" && $profesion != "" &&  $empresa != "" &&  $direccion != "" &&  $barrio != "" &&  $email != "" &&  $telefono != "" &&  $celular != "" &&  $fechaCumple != "" &&  $nohijos != "" &&  $sucursal != "" &&  $sexo != "default" &&  $habeasData != "0" &&  $clubVino != "" &&  $avvillas != ""){
@@ -326,7 +327,7 @@
               if(mysqli_query($con, $sql)){
 
                 // Inserción en la tabla de los clientes nuevos.
-                $sql2 = "INSERT INTO clientesnuevos VALUES('$cedula', '$nombre', '$insertTable')";
+                $sql2 = "INSERT INTO clientesnuevos VALUES('$cedula', '$nombre', '$insertTable', '$habeasData')";
                 mysqli_query($con, $sql2);
                 // ********************************************
                 echo "<script>

@@ -31,6 +31,7 @@ input::-webkit-input-placeholder{
 	font-size: 15px;
 	border:1px solid #ccc;
 	border-radius:5px;
+	outline: none;
 }
 /* Login estilos */
 /*****************/
@@ -218,3 +219,8 @@ a.a-home{
 	position:absolute;
 }
 
+/* Login admin estilos*/
+/*********************/
+input.adm{
+	margin: 20px auto;
+}

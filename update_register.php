@@ -33,9 +33,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Actualizar informacion</title>
+  <link rel="icon" href="imgs/favicon.png" type="img/png">
 	<link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link href="css/custom.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link href="css/custom.css" rel="stylesheet">
 </head>
 <body>
 	<div class="container">
@@ -310,7 +311,7 @@
 
                             # Conversión de la variable tipo fecha a entero
                             $variable        = strtotime($fechaCumple);
-                            $fechaNacimiento = idate('d', $variable).idate('m', $variable);
+                            $fechaNacimiento = idate('m', $variable).idate('d', $variable);
 
                             # Condicional que los datos no vengan vacios. 
                             if($codigo != "" && $nombre != "" && $cedula != "" && $profesion != "" &&  $empresa != "" &&  $direccion != "" &&  $barrio != "" &&  $email != "" &&  $telefono != "" &&  $celular != "" &&  $fechaNacimiento != "" &&  $nohijos != "" &&  $sucursal != "" &&  $sexo != "default" &&  $habeasData != "" &&  $clubVino != "" &&  $avvillas != ""){

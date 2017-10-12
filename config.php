@@ -112,7 +112,7 @@
 
 					# Prueba para ver si está tomando los datos del archivo plano.
 
-					$sql = "INSERT INTO puntos VALUES ('$codigo','$cedula','$puntos','$fecha')";
+					$sql = "INSERT INTO puntos VALUES (default, '$codigo','$cedula','$puntos','$fecha')";
 
 					if(mysqli_query($con, $sql)){
 						echo "<script>

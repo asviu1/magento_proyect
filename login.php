@@ -6,9 +6,9 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>Index</title>
 	<!-- Recuersos ajenos -->
+	<link rel="icon" href="imgs/favicon.png" type="img/png">
 	<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<title>Data</title>
 	<script src="contrib/hammerjs/hammer.min.js"></script>
 	<script src="contrib/hammerjs/hammer.fakemultitouch.js"></script>
 	<link rel="stylesheet" href="lib/drum.css">
@@ -42,6 +42,20 @@
 				<div class="date_wrapper outside">
 					<article>
 						<div class="lines"></div>
+						<select class="date" id="month" name="month">
+							<option value="1">Ene</option>
+							<option value="2">Feb</option>
+							<option value="3">Mar</option>
+							<option value="4">Abr</option>
+							<option value="5">Mayo</option>
+							<option value="6">Jun</option>
+							<option value="7">Jul</option>
+							<option value="8">Ago</option>
+							<option value="9">Sept</option>
+							<option value="10">Oct</option>
+							<option value="11">Nov</option>
+							<option value="12">Dic</option>
+						</select>
 						<select class="date" id="date" name="day">
 							<option value="1">1</option>
 							<option value="2">2</option>
@@ -75,20 +89,6 @@
 							<option value="30">30</option>
 							<option value="31">31</option>
 						</select>
-						<select class="date" id="month" name="month">
-							<option value="1">Ene</option>
-							<option value="2">Feb</option>
-							<option value="3">Mar</option>
-							<option value="4">Abr</option>
-							<option value="5">Mayo</option>
-							<option value="6">Jun</option>
-							<option value="7">Jul</option>
-							<option value="8">Ago</option>
-							<option value="9">Sept</option>
-							<option value="10">Oct</option>
-							<option value="11">Nov</option>
-							<option value="12">Dic</option>
-						</select>
 					</article>
 				</div>
 				<div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 col-xs-offset-3 col-xs-6 border-black">
@@ -106,12 +106,12 @@
 			session_destroy();
 
 			$cedula     = mysqli_real_escape_string($con, $_POST['cedula']);
-			$day        = $_POST['day'];
 			$month      = $_POST['month'];
+			$day        = $_POST['day'];
 
 			#Variable de la fecha junta. 
 
-			$fechaNacimiento = $day.$month;
+			$fechaNacimiento = $month.$day;
 
 			# Validacion de los campos vacios
 			if($cedula != ""){
