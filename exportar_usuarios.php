@@ -4,7 +4,7 @@
 
 	include 'conexion_bd.php';
 
-	$sql = "SELECT * FROM clientesnuevos ORDER BY cedula ASC";
+	$sql = "SELECT * FROM clientes ORDER BY cedula ASC";
 	$resultado = mysqli_query($con, $sql);
 	$registros = mysqli_num_rows ($resultado);
 
@@ -24,17 +24,31 @@
         ->setSubject("Clientes Nuevos")
         ->setDescription("Documento generado con PHPExcel")
         ->setKeywords("asweb.co  php  phpexcel")
-        ->setCategory("Clientes_nuevos");
+        ->setCategory("Clientes");
 
         $i = 1;
 
         while($row = mysqli_fetch_object($resultado)){
 
         	// Resultados de la BD que pone en cada campo del excel.
-        	$objPHPExcel->setActiveSheetIndex(0)->setCellValue('A'.$i, $row->cedula);
+        	$objPHPExcel->setActiveSheetIndex(0)->setCellValue('A'.$i, $row->codigo);
         	$objPHPExcel->setActiveSheetIndex(0)->setCellValue('B'.$i, $row->nombre);
-        	$objPHPExcel->setActiveSheetIndex(0)->setCellValue('C'.$i, $row->fecha);
-        	$objPHPExcel->setActiveSheetIndex(0)->setCellValue('D'.$i, $row->habeasData);
+        	$objPHPExcel->setActiveSheetIndex(0)->setCellValue('C'.$i, $row->cedula);
+        	$objPHPExcel->setActiveSheetIndex(0)->setCellValue('D'.$i, $row->profesion);
+        	$objPHPExcel->setActiveSheetIndex(0)->setCellValue('E'.$i, $row->empresa);
+        	$objPHPExcel->setActiveSheetIndex(0)->setCellValue('F'.$i, $row->direccion);
+        	$objPHPExcel->setActiveSheetIndex(0)->setCellValue('G'.$i, $row->barrio);
+        	$objPHPExcel->setActiveSheetIndex(0)->setCellValue('H'.$i, $row->email);
+        	$objPHPExcel->setActiveSheetIndex(0)->setCellValue('I'.$i, $row->telefono);
+        	$objPHPExcel->setActiveSheetIndex(0)->setCellValue('J'.$i, $row->celular);
+        	$objPHPExcel->setActiveSheetIndex(0)->setCellValue('K'.$i, $row->fechaNacimiento);
+        	$objPHPExcel->setActiveSheetIndex(0)->setCellValue('L'.$i, $row->fechaCumple);
+        	$objPHPExcel->setActiveSheetIndex(0)->setCellValue('M'.$i, $row->nohijos);
+        	$objPHPExcel->setActiveSheetIndex(0)->setCellValue('N'.$i, $row->sucursal);
+        	$objPHPExcel->setActiveSheetIndex(0)->setCellValue('O'.$i, $row->sexo);
+        	$objPHPExcel->setActiveSheetIndex(0)->setCellValue('P'.$i, $row->habeasData);
+        	$objPHPExcel->setActiveSheetIndex(0)->setCellValue('Q'.$i, $row->clubVino);
+        	$objPHPExcel->setActiveSheetIndex(0)->setCellValue('R'.$i, $row->avvillas);
 
         	$i++;
         }

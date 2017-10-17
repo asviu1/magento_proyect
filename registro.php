@@ -1,11 +1,15 @@
-<?php session_start(); ?>
+<?php
+  header('Content-type: text/html; charset=utf-8');
+  session_start();
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Registrarse</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="icon" href="imgs/favicon.png" type="img/png">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -316,30 +320,33 @@
 
             # Conversión de la variable tipo fecha a entero
             $variable        = strtotime($fechaCumple);
-            $fechaNacimiento = idate('m', $variable).idate('d', $variable);
+
+            $date1 = idate('m', $variable);
+
+            $date2 = idate('d', $variable);
+
+            if($date2 <= 9 ){
+               $date2 = "0".idate('d', $variable);
+            }
+
+            $fechaNacimiento = $date1.$date2;
 
             # Condicional que los datos no vengan vacios. 
             if($codigo != "" && $nombre != "" && $cedula != "" && $profesion != "" &&  $empresa != "" &&  $direccion != "" &&  $barrio != "" &&  $email != "" &&  $telefono != "" &&  $celular != "" &&  $fechaCumple != "" &&  $nohijos != "" &&  $sucursal != "" &&  $sexo != "default" &&  $habeasData != "0" &&  $clubVino != "" &&  $avvillas != ""){
 
               $sql = "INSERT INTO clientes VALUES('$codigo', '$nombre', '$cedula', '$profesion', '$empresa', '$direccion', '$barrio', '$email', '$telefono', '$celular', '$fechaNacimiento', '$fechaCumple', '$nohijos', '$sucursal', '$sexo', '$habeasData', '$clubVino', '$avvillas')";
 
-
-              if(mysqli_query($con, $sql)){
-
-                // Inserción en la tabla de los clientes nuevos.
-                $sql2 = "INSERT INTO clientesnuevos VALUES('$cedula', '$nombre', '$insertTable', '$habeasData')";
-                mysqli_query($con, $sql2);
-                // ********************************************
-                echo "<script>
-                        alert('Se insertó con éxito');
-                        location.replace('login.php');
-                      </script>";
-              } else {
-                echo "<script>
-                        alert('Ocurrió un error al insertar. Por favor vuelva a intentarlo');
-                        location.replace('registro.php');
-                      </script>";
-              }
+                if(mysqli_query($con, $sql)){
+                  echo "<script>
+                          alert('Se insertó con éxito');
+                          location.replace('login.php');
+                        </script>";
+                } else {
+                  echo "<script>
+                          alert('Ocurrió un error al insertar. Por favor vuelva a intentarlo');
+                          location.replace('registro.php');
+                        </script>";
+                }
             } else {
               echo "<script>
                       alert('Campos vacíos o nulos, por favor completarlos');
@@ -347,9 +354,7 @@
             }
           }
     ?>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/custom.js"></script>
     <script src="js/jquery.form-validator.min.js"></script>

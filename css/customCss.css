@@ -116,6 +116,9 @@ p.information{
 .border-black{
 	/*border:1px solid black;*/
 }
+div.div-center{
+	margin-top:15vh;
+}
 div.bg-img{
 	background:url(../imgs/logo.png) no-repeat center center;
 	-webkit-background-size: contain;

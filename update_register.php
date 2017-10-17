@@ -1,6 +1,7 @@
 <?php
 	if($_GET){
 
+        header('Content-type: text/html; charset=utf-8');
         include "conexion_bd.php";
 
 		# Declaración de la variable que llega por get
@@ -29,14 +30,22 @@
     }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-	<meta charset="UTF-8">
 	<title>Actualizar informacion</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <link rel="icon" href="imgs/favicon.png" type="img/png">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link href="css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/font-awesome.min.css">
   <link href="css/custom.css" rel="stylesheet">
+  <script type="text/javascript">
+      function cambiaValor(valor){
+          if(valor.checked){
+              document.updateForm.habeasData.value=1;
+          }
+      }
+  </script>
 </head>
 <body>
 	<div class="container">
@@ -102,7 +111,7 @@
                             </li>
                         </ul>
                     </div>
-                    <form role="form" method="post">
+                    <form role="form" method="post" name="updateForm" id="updateForm">
                         <div class="tab-content">
                             <div class="tab-pane active" role="tabpanel" id="step1">
                               <div class="form">
@@ -117,7 +126,8 @@
                                     	   value="<?= $row['nombre']; ?>" 
                                     	   placeholder="Nombre completo" 
                                     	   name="nombre"
-                                    	   type="text">
+                                    	   type="text"
+                                         data-validation="required">
                                 </div>
                                 <!-- Cada campo -->
                                 <div class="form-group">
@@ -126,7 +136,8 @@
                                            placeholder="Cedula" 
                                            name="cedula" 
                                            type="number"
-                                           readonly>
+                                           readonly
+                                           data-validation="required">
                                 </div>
                                  <!-- Cada campo -->
                                 <div class="form-group">
@@ -134,7 +145,8 @@
                                            value="<?= $row['profesion']; ?>" 
                                            placeholder="Profesión" 
                                            name="profesion" 
-                                           type="text">
+                                           type="text"
+                                           data-validation="required">
                                 </div>
                                 <!-- Cada campo -->
                                 <div class="form-group">
@@ -142,7 +154,8 @@
                                     	   value="<?= $row['empresa']; ?>"
                                     	   placeholder="Empresa donde labora" 
                                     	   name="empresa" 
-                                    	   type="text">
+                                    	   type="text"
+                                         data-validation="required">
                                 </div>
                               </div>
                                 <ul class="list-inline pull-right">
@@ -157,7 +170,8 @@
                                         	   value="<?= $row['direccion']; ?>"
                                         	   placeholder="Direccion" 
                                         	   name="direccion" 
-                                        	   type="text">
+                                        	   type="text"
+                                             data-validation="required">
                                     </div>
                                     <!-- Cada campo -->
                                     <div class="form-group">
@@ -165,7 +179,8 @@
                                         	   value="<?= $row['barrio']; ?>"
                                         	   placeholder="Barrio" 
                                         	   name="barrio" 
-                                        	   type="text">
+                                        	   type="text"
+                                             data-validation="required">
                                     </div>
                                     <!-- Cada campo -->
                                     <div class="form-group">
@@ -181,7 +196,8 @@
                                         	   value="<?= $row['telefono']; ?>"
                                         	   placeholder="Teléfono fijo" 
                                         	   name="telefono" 
-                                        	   type="number">
+                                        	   type="number"
+                                             data-validation="required">
                                     </div>
                                 </div>
                                 <ul class="list-inline pull-right">
@@ -197,14 +213,16 @@
                                         	   value="<?= $row['celular']; ?>"
                                         	   placeholder="Numero de celular" 
                                         	   name="celular"
-                                        	   type="number">
+                                        	   type="number"
+                                             data-validation="required">
                                     </div>
                                     <!-- Cada campo -->
                                     <div class="form-group">
                                         <input class="form-control"
-                                        	   value="<?= $row['fechaCumple']; ?>" 
-                                        	   name="fechaCumple" 
-                                        	   type="date">
+                                          	   value="<?= $row['fechaCumple']; ?>" 
+                                          	   name="fechaCumple" 
+                                          	   type="date"
+                                               data-validation="required">
                                     </div>
                                     <!-- Cada campo -->
                                     <div class="form-group">
@@ -212,7 +230,8 @@
                                                value="<?= $row['nohijos']; ?>"
                                                placeholder="Número de hijos" 
                                                name="nohijos" 
-                                               type="number">
+                                               type="number"
+                                               data-validation="required">
                                     </div>
                                     <!-- Cada campo -->
                                     <div class="form-group">
@@ -248,10 +267,6 @@
                                       </select>
                                     </div>
                                     <!-- Campo oculto que después se reemplaza -->
-                                    <input class="form-control" value="00" name="puntos" type="hidden">
-                                    <!-- Campo oculto que después se reemplaza -->
-                                    <input class="form-control" value="00" name="habeasData" type="hidden">
-                                    <!-- Campo oculto que después se reemplaza -->
                                     <input class="form-control" value="00" name="clubVino" type="hidden">
                                     <!-- Campo oculto que después se reemplaza -->
                                     <input class="form-control" value="00" name="avvillas" type="hidden">
@@ -271,6 +286,13 @@
                                         <option <?php if($row['sexo'] == "i"){ echo "selected"; } ?> value="i">Indefinido</option>
                                     </select>
                                 </div>
+                                <input id="check-custom" name="try" type="checkbox" onClick="cambiaValor(this)">
+                                <input type="text" name="habeasData" id="checkboxvalidation" hidden>
+                                <a class="link-custom" href="https://www.mercaldas.com.co/politica-privacidad" target="_BLANK"> Acepto términos y condiciones.
+                                </a>
+                                <textarea id="text-custom" cols="30" rows="5" class="form-control" readonly>
+                                <?php include 'politicas.php'; ?>
+                                </textarea>
                                 <ul class="list-inline pull-right">
                                     <li>
                                         <button class="button1 btn-info-full next-step" type="submit">
@@ -283,8 +305,7 @@
                             <div class="clearfix"></div>
                         </div>
                     </form>
-                    <!-- Script para la actualizacion de datos -->
-                    <?php  
+                    <?php
 
                         if($_POST){
 
@@ -311,7 +332,19 @@
 
                             # Conversión de la variable tipo fecha a entero
                             $variable        = strtotime($fechaCumple);
-                            $fechaNacimiento = idate('m', $variable).idate('d', $variable);
+                            
+                            # Conversión de la variable tipo fecha a entero
+                            $variable        = strtotime($fechaCumple);
+
+                            $date1 = idate('m', $variable);
+
+                            $date2 = idate('d', $variable);
+
+                            if($date2 <= 9 ){
+                               $date2 = "0".idate('d', $variable);
+                            }
+
+                            $fechaNacimiento = $date1.$date2;
 
                             # Condicional que los datos no vengan vacios. 
                             if($codigo != "" && $nombre != "" && $cedula != "" && $profesion != "" &&  $empresa != "" &&  $direccion != "" &&  $barrio != "" &&  $email != "" &&  $telefono != "" &&  $celular != "" &&  $fechaNacimiento != "" &&  $nohijos != "" &&  $sucursal != "" &&  $sexo != "default" &&  $habeasData != "" &&  $clubVino != "" &&  $avvillas != ""){
@@ -319,22 +352,27 @@
                                 # SQL de actualizar los datos.
                                 $sql = "UPDATE clientes SET codigo = '$codigo', nombre = '$nombre', cedula = '$cedula', profesion = '$profesion', empresa = '$empresa', direccion = '$direccion', barrio = '$barrio', email = '$email', telefono = '$telefono', celular = '$celular', fechaNacimiento = '$fechaNacimiento', fechaCumple = '$fechaCumple', nohijos = '$nohijos', sucursal = '$sucursal', sexo = '$sexo', habeasData = '$habeasData', clubVino = '$clubVino', avvillas = '$avvillas' WHERE cedula = $cedula";
 
-                                #Condicional si fué efectuoso el actualizar los datos
-                                if(mysqli_query($con, $sql)){
-                                    echo "<script>
-                                            alert('Se modificó con éxito');
-                                            location.replace('cerrar_session.php');
-                                          </script>";
-                                } else {
-                                    echo "<script>
-                                            alert('Ocurrió un error, por favor vuelve a intentarlo');
-                                          </script>";
-                                }
-
-                            }
+                                  #Condicional si fué efectuoso el actualizar los datos
+                                  if(mysqli_query($con, $sql)){
+                                      echo "<script>
+                                              alert('Se modificó con éxito');
+                                              location.replace('cerrar_session.php');
+                                            </script>";
+                                  } else {
+                                      echo "<script>
+                                              alert('Ocurrió un error, por favor vuelve a intentarlo');
+                                            </script>";
+                                  }
+                            
+                            # Else del condicional si hay algún campo vacío.
+                             } else {
+                                  echo "<script>
+                                          alert('Hay algún campo vacio, por favor diligencielos');
+                                        </script>";
+                              }
                         }
 
-                    ?>
+                  ?>
                 </div>
             </section>
        </div>
@@ -343,5 +381,11 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
    <script src="js/bootstrap.min.js"></script>
    <script src="js/custom.js"></script>
+   <script src="js/jquery.form-validator.min.js"></script>
+   <script>
+      $(document).ready(function($){
+          $.validate({ form: '#updateForm' });
+      });
+   </script>
 </body>
 </html>

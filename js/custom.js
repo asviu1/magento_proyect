@@ -23,70 +23,71 @@ setTimeout(function(){
     // Bótón 1 de avanzar en el formulario
     $(".next-step").click(function (e) {
 
-        // // Declaracion de las variables que toman el valor del campo. 
-        // var nombre    = $("#nombre").val();
-        // var cedula    = $("#cedula").val();
-        // var profesion = $("#profesion").val();
-        // var empresa   = $("#empresa").val();
-        // // Validación si las variables están vacías
-        // if( nombre == "" || cedula == "" || profesion == "" || empresa == ""){
-        //     alert('Hay campos vacíos, por favor completelos.');
-        // } else {
+        // Declaracion de las variables que toman el valor del campo. 
+        var nombre    = $("#nombre").val();
+        var cedula    = $("#cedula").val();
+        var profesion = $("#profesion").val();
+        var empresa   = $("#empresa").val();
+        // Validación si las variables están vacías
+        if( nombre == "" || cedula == "" || profesion == "" || empresa == ""){
+            alert('Hay campos vacíos, por favor completelos.');
+        } else {
             var $active = $('.wizard .nav-tabs li.active');
             $active.next().removeClass('disabled');
             nextTab($active);
-        // }
+        }
     });
 
     // Bótón 2 de avanzar en el formulario
      $(".next-step-2").click(function (e) {
-        // // Declaracion de las variables que toman el valor del campo. 
-        // var direccion  = $("#direccion").val();
-        // var barrio     = $("#barrio").val();
-        // var telefono   = $("#telefono").val();
-        // // Validación si las variables están vacías
-        // if( direccion == "" || barrio == "" || telefono == ""){
-        //     alert('Hay campos vacíos, por favor completelos.');
-        // } else {
+        // Declaracion de las variables que toman el valor del campo. 
+        var direccion  = $("#direccion").val();
+        var barrio     = $("#barrio").val();
+        var telefono   = $("#telefono").val();
+        // Validación si las variables están vacías
+        if( direccion == "" || barrio == "" || telefono == ""){
+            alert('Hay campos vacíos, por favor completelos.');
+        } else {
             var $active = $('.wizard .nav-tabs li.active');
             $active.next().removeClass('disabled');
             nextTab($active);
-        // }
+        }
     });
 
     // Bótón 3 de avanzar en el formulario
      $(".next-step-3").click(function (e) {
         
-        // //Declaracion de las variables que toman el valor del campo. 
-        // var celular     = $("#celular").val();
-        // var fechaCumple = $("#fechaCumple").val();
-        // var nohijos     = $("#nohijos").val();
-        // var sucursal    = $("#sucursal").val();
-        // // Validación si las variables están vacías
-        // if( celular == "" || fechaCumple == "" || nohijos == "" || sucursal == "default"){
-        //     alert('Hay campos vacíos, por favor completelos.');
-        // } else {
+        //Declaracion de las variables que toman el valor del campo. 
+        var celular     = $("#celular").val();
+        var fechaCumple = $("#fechaCumple").val();
+        var nohijos     = $("#nohijos").val();
+        var sucursal    = $("#sucursal").val();
+        // Validación si las variables están vacías
+        if( celular == "" || fechaCumple == "" || nohijos == "" || sucursal == "default"){
+            alert('Hay campos vacíos, por favor completelos.');
+        } else {
             var $active = $('.wizard .nav-tabs li.active');
             $active.next().removeClass('disabled');
             nextTab($active);
-        // }
+        }
     });
 
     // Bótón 4 de avanzar en el formulario
      $(".next-step-4").click(function (e) {
-        // // Declaracion de las variables que toman el valor del campo. 
-        // var sexo               = $("#sexo").val();
-        // var checkboxvalidation = $("#checkboxvalidation").val();
-        // // Validación si las variables están vacías
-        // if( sexo == "" || checkboxvalidation == ""){
-        //     $("#btn-send").prop("type", "button");
-        //     alert('Por favor diligencie los campos y acepte los términos de contrato');
-        // } else {
+        
+        // Declaracion de las variables que toman el valor del campo. 
+        var sexo               = $("#sexo").val();
+        var checkboxvalidation = $("#checkboxvalidation").val();
+        // Validación si las variables están vacías
+        if( sexo == "" || checkboxvalidation == ""){
+            $("#btn-send").prop("type", "button");
+            alert('Por favor diligencie los campos y acepte los términos de contrato');
+        } else {
             $("#btn-send").prop("type", "submit");
             var $active = $('.wizard .nav-tabs li.active');
             $active.next().removeClass('disabled');
             nextTab($active);
-        // }
+        }
     });
 
     $(".prev-step").click(function (e) {

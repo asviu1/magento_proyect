@@ -1,7 +1,8 @@
+<?php header('Content-type: text/html; charset=utf-8'); ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>Admin View</title>
 	<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
@@ -24,7 +25,7 @@
 							   name="cedula"
 							   type="number">
 				<input class="form-control form-custom adm" 
-							   placeholder="Fecha de nacimiento, mes/dia" 
+							   placeholder="Contraseña" 
 							   name="fechaNacimiento"
 							   type="password">
 				<div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 col-xs-offset-3 col-xs-6 border-black">

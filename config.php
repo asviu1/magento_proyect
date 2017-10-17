@@ -26,24 +26,24 @@
 
 					# Declaracion de las variables, por ; toma la posicion como arreglo
 
-					$codigo           = trim($datos[0]);
-					$nombre           = trim($datos[1]);
-					$cedula           = trim($datos[2]);
-					$profesion        = trim($datos[3]);
-					$empresa          = trim($datos[4]);
-					$direccion        = trim($datos[5]);
-					$barrio           = trim($datos[6]);
-					$email            = trim($datos[7]);
-					$telefono         = trim($datos[8]);
-					$celular          = trim($datos[9]);
-					$fechaNacimiento  = trim($datos[10]);
-					$fechaCumple      = trim($datos[11]);
-					$nohijos          = trim($datos[12]);
-					$sucursal         = trim($datos[13]);
-					$sexo             = trim($datos[14]);
-					$habeasData       = trim($datos[15]);
-					$clubVino         = trim($datos[16]);
-					$avvillas         = trim($datos[17]);
+					$codigo           = trim(utf8_encode($datos[0]));
+					$nombre           = trim(utf8_encode($datos[1]));
+					$cedula           = trim(utf8_encode($datos[2]));
+					$profesion        = trim(utf8_encode($datos[3]));
+					$empresa          = trim(utf8_encode($datos[4]));
+					$direccion        = trim(utf8_encode($datos[5]));
+					$barrio           = trim(utf8_encode($datos[6]));
+					$email            = trim(utf8_encode($datos[7]));
+					$telefono         = trim(utf8_encode($datos[8]));
+					$celular          = trim(utf8_encode($datos[9]));
+					$fechaNacimiento  = trim(utf8_encode($datos[10]));
+					$fechaCumple      = trim(utf8_encode($datos[11]));
+					$nohijos          = trim(utf8_encode($datos[12]));
+					$sucursal         = trim(utf8_encode($datos[13]));
+					$sexo             = trim(utf8_encode($datos[14]));
+					$habeasData       = trim(utf8_encode($datos[15]));
+					$clubVino         = trim(utf8_encode($datos[16]));
+					$avvillas         = trim(utf8_encode($datos[17]));
 
 					# Prueba para ver si está tomando los datos del archivo plano.
 
@@ -72,12 +72,12 @@
 
 					# Declaracion de las variables, por ; toma la posicion como arreglo
 
-					$codArticulo             = trim($datos[0]);
-					$nombreArticulo          = trim($datos[1]);
-					$proveedor               = trim($datos[2]);
-					$vlrNeto                 = trim($datos[3]);
-					$nombreSeccionCategoria  = trim($datos[4]);
-					$nombreTipoSubcategoria  = trim($datos[5]);
+					$codArticulo             = trim(utf8_encode($datos[0]));
+					$nombreArticulo          = trim(utf8_encode($datos[1]));
+					$proveedor               = trim(utf8_encode($datos[2]));
+					$vlrNeto                 = trim(utf8_encode($datos[3]));
+					$nombreSeccionCategoria  = trim(utf8_encode($datos[4]));
+					$nombreTipoSubcategoria  = trim(utf8_encode($datos[5]));
 
 					# Prueba para ver si está tomando los datos del archivo plano.
 
@@ -135,27 +135,27 @@
 
 					# Declaracion de las variables, por ; toma la posicion como arreglo
 
-					$cliente           = trim($datos[0]);
-					$factura           = trim($datos[1]);
-					$codArticulo       = trim($datos[2]);
-					$nombreArticulo    = trim($datos[3]);
-					$proveedor         = trim($datos[4]);
-					$cantidad          = trim($datos[5]);
-					$vlrBruto          = trim($datos[6]);
-					$porcentajeDcto    = trim($datos[7]);
-					$valorDcto         = trim($datos[8]);
-					$porcentajeIva     = trim($datos[9]);
-					$vlrIva            = trim($datos[10]);
-					$vlrNeto           = trim($datos[11]);
-					$fecha             = trim($datos[12]);
-					$hora              = trim($datos[13]);
-					$caja              = trim($datos[14]);
-					$sucursal          = trim($datos[15]);
-					$nombreSucursal    = trim($datos[16]);
-					$seccion           = trim($datos[17]);
-					$nombreSeccion     = trim($datos[18]);
-					$tipoProducto      = trim($datos[19]);
-					$nombreTipo        = trim($datos[20]);
+					$cliente           = trim(utf8_encode($datos[0]));
+					$factura           = trim(utf8_encode($datos[1]));
+					$codArticulo       = trim(utf8_encode($datos[2]));
+					$nombreArticulo    = trim(utf8_encode($datos[3]));
+					$proveedor         = trim(utf8_encode($datos[4]));
+					$cantidad          = trim(utf8_encode($datos[5]));
+					$vlrBruto          = trim(utf8_encode($datos[6]));
+					$porcentajeDcto    = trim(utf8_encode($datos[7]));
+					$valorDcto         = trim(utf8_encode($datos[8]));
+					$porcentajeIva     = trim(utf8_encode($datos[9]));
+					$vlrIva            = trim(utf8_encode($datos[10]));
+					$vlrNeto           = trim(utf8_encode($datos[11]));
+					$fecha             = trim(utf8_encode($datos[12]));
+					$hora              = trim(utf8_encode($datos[13]));
+					$caja              = trim(utf8_encode($datos[14]));
+					$sucursal          = trim(utf8_encode($datos[15]));
+					$nombreSucursal    = trim(utf8_encode($datos[16]));
+					$seccion           = trim(utf8_encode($datos[17]));
+					$nombreSeccion     = trim(utf8_encode($datos[18]));
+					$tipoProducto      = trim(utf8_encode($datos[19]));
+					$nombreTipo        = trim(utf8_encode($datos[20]));
 
 					# Prueba para ver si está tomando los datos del archivo plano.
 
