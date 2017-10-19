@@ -28,7 +28,7 @@
 	?>
 </head>
 <body>
-	<div class="container-fluid">
+	<div class="container-fluid div-center">
 		<div class="row">
 			<div class="col-lg-offset-4 col-lg-4 col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6 div-container border-black">
 			<form method="post" id="login" autocomplete="off">
@@ -38,6 +38,7 @@
 							   placeholder="Ingrese su número de cédula" 
 							   name="cedula"
 							   type="number"
+							   id="field-cedula"
 							   value="<?= $_SESSION['cedula'] ?>">
 				<!-- Formulario de datapicker -->
 				<div class="col-lg-12"></div>

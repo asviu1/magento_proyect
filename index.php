@@ -1,9 +1,5 @@
 <?php
-
 	header('Content-type: text/html; charset=utf-8');
-	#Acá se destroye la variable de session $_SESSION['cedula'] por si le da click a volver
-	session_start();
-	session_destroy();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -32,6 +28,13 @@
 			</div>
 		</div>
 	</div>
+	<button class="hidden" id="dbOk"></button>
+	<button class="hidden" id="dbNo"></button>
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/all.js"></script>
+	<script>
+        alertify.theme("bootstrap");
+    </script>
 	<?php
 
 		if($_POST){
@@ -55,8 +58,7 @@
 				$_SESSION['cedula'] = $row['cedula'];
 
 				echo "<script>
-						alert('Su documento está en la Base de Datos, por favor ingrese');
-						location.replace('login.php');
+						$('#dbOk').click();
 					 </script>";
 			} else {
 
@@ -64,8 +66,7 @@
 				$_SESSION['cedula'] = $_POST['cedula'];
 				
 				echo "<script>
-						alert('Su documento no existe en la Base de Datos, por favor regístrese');
-						location.replace('registro.php');
+						$('#dbNo').click();
 					 </script>";
 			}
 		}

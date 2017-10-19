@@ -35,12 +35,15 @@ input::-webkit-input-placeholder{
 }
 /* Login estilos */
 /*****************/
-h3.main-title{
+h3.main-title{   
 	text-align: center;
 	color: #008136;
 	font-weight: bolder;
 	font-style: italic;
 	margin-top:0px;
+}
+input#field-cedula{
+	margin-top: 30px;
 }
 h4.faker-place{
 	color:rgba(0,0,0,0.5);
@@ -117,7 +120,7 @@ p.information{
 	/*border:1px solid black;*/
 }
 div.div-center{
-	margin-top:15vh;
+	margin-top:10vh;
 }
 div.bg-img{
 	background:url(../imgs/logo.png) no-repeat center center;
@@ -226,4 +229,10 @@ a.a-home{
 /*********************/
 input.adm{
 	margin: 20px auto;
+}
+
+/* Estilos personalizados alertyfy*/
+/*********************************/
+div.alertify{
+	background-color: rgba(0,0,0,0.5);
 }

@@ -20,6 +20,7 @@
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/custom.css">
 	<link rel="stylesheet" href="css/customCss.css">
+	<script src="js/settimeout.js"></script>
 </head>
 <body>
 	<div class="container-fluid div-center">
@@ -27,7 +28,7 @@
 			<div class="col-lg-offset-3 col-lg-5 col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 div-container border-black">
 				<div class="col-lg-12 bg-img border-black"></div>
 				<h3 class="main-title-user">Bienvenido <?= $_SESSION['user']; ?></h3>
-				<a href="cerrar_session.php" class="log-out">
+				<a href="cerrar_session.php" class="log-out" id="cerrar_session">
 					<i class="fa fa-sign-out"></i>
 					Cerrar Session
 				</a>
@@ -61,7 +62,7 @@
 								echo "0";
 							}
 
-						?>	
+						?>
 					</h1>
 				</div>
 			</div>
@@ -69,5 +70,9 @@
 	</div>
 	<script src="js/jquery-3.1.1.min.js"></script>
 	<script src="js/hidden_content.js"></script>
+	<script src="js/all.js"></script>
+	<script>
+        alertify.theme("bootstrap");
+    </script>
 </body>
 </html>

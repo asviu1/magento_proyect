@@ -12,6 +12,7 @@ div.drum-wrapper .inner {
 	position: relative;
 	overflow: hidden;
 }
+
 div.drum-wrapper div.container {
 	position: absolute;
 	width: 100%;
@@ -32,6 +33,8 @@ div.drum-wrapper .inner {
 	height: 140px;
 }
 .outside div.drum-wrapper .inner {
+	/*Cambio 1*/
+	height:150px; 
 	top: 12px;
 }
 .outside div.drum-wrapper .container {
@@ -44,7 +47,7 @@ div.drum-wrapper .dial {
 	width: 100%;
 	left: 0px;
 	height: 48px;
-	background-color: rgba(255, 255, 255, 0.7);
+	/*background-color: rgba(255, 255, 255, 0.7);*/
 	display: none;
 }
 
@@ -53,6 +56,7 @@ div.drum-wrapper .dial {
 }
 
 div.drum-wrapper .dial div {
+	/*border:1px solid black;*/
 	width: 20px;
 	height: 10px;
 	margin: 0 auto;
@@ -70,7 +74,7 @@ div.drum-wrapper .down {
 	bottom: 0px;
 }
 div.drum-wrapper .down svg {
-	bottom: 2px;
+	bottom: -32px;
 }
 
 /* actual drum styles */
@@ -109,6 +113,7 @@ div.drum figure {
 }
 
 div.drum-wrapper div.container, div.drum-wrapper figure {
-	height: 25px;
+	/*Cambio 2*/
+	height: 45px;
 	line-height: 25px;
 }

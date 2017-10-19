@@ -126,6 +126,7 @@
                                     	   value="<?= $row['nombre']; ?>" 
                                     	   placeholder="Nombre completo" 
                                     	   name="nombre"
+                                         id="nombre"
                                     	   type="text"
                                          data-validation="required">
                                 </div>
@@ -134,7 +135,8 @@
                                     <input class="form-control"
                                     	   value="<?= $row['cedula']; ?>" 
                                            placeholder="Cedula" 
-                                           name="cedula" 
+                                           name="cedula"
+                                           id="cedula" 
                                            type="number"
                                            readonly
                                            data-validation="required">
@@ -144,7 +146,8 @@
                                     <input class="form-control"
                                            value="<?= $row['profesion']; ?>" 
                                            placeholder="Profesión" 
-                                           name="profesion" 
+                                           name="profesion"
+                                           id="profesion" 
                                            type="text"
                                            data-validation="required">
                                 </div>
@@ -153,7 +156,8 @@
                                     <input class="form-control"
                                     	   value="<?= $row['empresa']; ?>"
                                     	   placeholder="Empresa donde labora" 
-                                    	   name="empresa" 
+                                    	   name="empresa"
+                                         id="empresa"
                                     	   type="text"
                                          data-validation="required">
                                 </div>
@@ -169,7 +173,8 @@
                                         <input class="form-control"
                                         	   value="<?= $row['direccion']; ?>"
                                         	   placeholder="Direccion" 
-                                        	   name="direccion" 
+                                        	   name="direccion"
+                                             id="direccion" 
                                         	   type="text"
                                              data-validation="required">
                                     </div>
@@ -178,7 +183,8 @@
                                         <input class="form-control"
                                         	   value="<?= $row['barrio']; ?>"
                                         	   placeholder="Barrio" 
-                                        	   name="barrio" 
+                                        	   name="barrio"
+                                             id="barrio" 
                                         	   type="text"
                                              data-validation="required">
                                     </div>
@@ -195,14 +201,15 @@
                                         <input class="form-control"
                                         	   value="<?= $row['telefono']; ?>"
                                         	   placeholder="Teléfono fijo" 
-                                        	   name="telefono" 
+                                        	   name="telefono"
+                                             id="telefono" 
                                         	   type="number"
                                              data-validation="required">
                                     </div>
                                 </div>
                                 <ul class="list-inline pull-right">
                                     <li><button type="button" class="button1 prev-step">Anterior</button></li>
-                                    <li><button type="button" class="button1 next-step">Siguiente</button></li>
+                                    <li><button type="button" class="button1 next-step-2">Siguiente</button></li>
                                 </ul>
                             </div>
                             <div class="tab-pane" role="tabpanel" id="step3">
@@ -213,14 +220,16 @@
                                         	   value="<?= $row['celular']; ?>"
                                         	   placeholder="Numero de celular" 
                                         	   name="celular"
+                                             id="celular"
                                         	   type="number"
                                              data-validation="required">
                                     </div>
                                     <!-- Cada campo -->
                                     <div class="form-group">
-                                        <input class="form-control"
-                                          	   value="<?= $row['fechaCumple']; ?>" 
-                                          	   name="fechaCumple" 
+                                        <input class="form-control" 
+                                          	   name="fechaCumple"
+                                               id="fechaCumple"
+                                               onfocus="(this.type='date')" 
                                           	   type="date"
                                                data-validation="required">
                                     </div>
@@ -229,7 +238,8 @@
                                         <input class="form-control"
                                                value="<?= $row['nohijos']; ?>"
                                                placeholder="Número de hijos" 
-                                               name="nohijos" 
+                                               name="nohijos"
+                                               id="nohijos" 
                                                type="number"
                                                data-validation="required">
                                     </div>
@@ -273,7 +283,7 @@
                                 </div>
                                 <ul class="list-inline pull-right">
                                     <li><button type="button" class="button1 prev-step">Anterior</button></li>
-                                    <li><button type="button" class="button1 next-step">Siguiente</button></li>
+                                    <li><button type="button" class="button1 next-step-3">Siguiente</button></li>
                                 </ul>
                             </div>
                             <div class="tab-pane" role="tabpanel" id="complete">
@@ -281,9 +291,9 @@
                                 <div class="form-group">
                                     <select name="sexo" class="form-control">
                                         <option value="default">Seleccione...</option>
-                                        <option <?php if($row['sexo'] == "m"){ echo "selected"; } ?> value="m">Masculino</option>
-                                        <option <?php if($row['sexo'] == "f"){ echo "selected"; } ?> value="f">Femenino</option>
-                                        <option <?php if($row['sexo'] == "i"){ echo "selected"; } ?> value="i">Indefinido</option>
+                                        <option <?php if($row['sexo'] == "M"){ echo "selected"; } ?> value="m">Masculino</option>
+                                        <option <?php if($row['sexo'] == "F"){ echo "selected"; } ?> value="f">Femenino</option>
+                                        <option <?php if($row['sexo'] == "I"){ echo "selected"; } ?> value="i">Indefinido</option>
                                     </select>
                                 </div>
                                 <input id="check-custom" name="try" type="checkbox" onClick="cambiaValor(this)">
@@ -294,8 +304,9 @@
                                 <?php include 'politicas.php'; ?>
                                 </textarea>
                                 <ul class="list-inline pull-right">
+                                    <li><button type="button" class="button1 prev-step">Anterior</button></li>
                                     <li>
-                                        <button class="button1 btn-info-full next-step" type="submit">
+                                        <button class="button1 btn-info-full next-step-4" id="btn-send">
                                             <i class="fa fa-send"></i>
                                             &nbsp Enviar
                                         </button>
@@ -347,7 +358,7 @@
                             $fechaNacimiento = $date1.$date2;
 
                             # Condicional que los datos no vengan vacios. 
-                            if($codigo != "" && $nombre != "" && $cedula != "" && $profesion != "" &&  $empresa != "" &&  $direccion != "" &&  $barrio != "" &&  $email != "" &&  $telefono != "" &&  $celular != "" &&  $fechaNacimiento != "" &&  $nohijos != "" &&  $sucursal != "" &&  $sexo != "default" &&  $habeasData != "" &&  $clubVino != "" &&  $avvillas != ""){
+                            if($codigo != "" && $nombre != "" && $cedula != "" && $profesion != "" &&  $empresa != "" &&  $direccion != "" &&  $barrio != "" &&  $telefono != "" &&  $celular != "" &&  $fechaNacimiento != "" &&  $nohijos != "" &&  $sucursal != "" &&  $sexo != "default" &&  $habeasData != "" &&  $clubVino != "" &&  $avvillas != ""){
 
                                 # SQL de actualizar los datos.
                                 $sql = "UPDATE clientes SET codigo = '$codigo', nombre = '$nombre', cedula = '$cedula', profesion = '$profesion', empresa = '$empresa', direccion = '$direccion', barrio = '$barrio', email = '$email', telefono = '$telefono', celular = '$celular', fechaNacimiento = '$fechaNacimiento', fechaCumple = '$fechaCumple', nohijos = '$nohijos', sucursal = '$sucursal', sexo = '$sexo', habeasData = '$habeasData', clubVino = '$clubVino', avvillas = '$avvillas' WHERE cedula = $cedula";
