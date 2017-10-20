@@ -122,9 +122,12 @@
                                 	   type="hidden">
                                 <!-- Cada campo -->
                                 <div class="form-group">
+                                    <label for="nombre">
+                                      <i class="fa fa-user-circle"></i>
+                                      Nombre
+                                    </label>
                                     <input class="form-control"
                                     	   value="<?= $row['nombre']; ?>" 
-                                    	   placeholder="Nombre completo" 
                                     	   name="nombre"
                                          id="nombre"
                                     	   type="text"
@@ -132,6 +135,10 @@
                                 </div>
                                 <!-- Cada campo -->
                                 <div class="form-group">
+                                  <label for="cedula">
+                                    <i class="fa fa-address-book"></i>
+                                    Documento
+                                  </label>
                                     <input class="form-control"
                                     	   value="<?= $row['cedula']; ?>" 
                                            placeholder="Cedula" 
@@ -143,6 +150,10 @@
                                 </div>
                                  <!-- Cada campo -->
                                 <div class="form-group">
+                                  <label for="profesion">
+                                    <i class="fa fa-graduation-cap"></i>
+                                    Profesion
+                                    </label>
                                     <input class="form-control"
                                            value="<?= $row['profesion']; ?>" 
                                            placeholder="Profesión" 
@@ -153,6 +164,10 @@
                                 </div>
                                 <!-- Cada campo -->
                                 <div class="form-group">
+                                  <label for="empresa">
+                                    <i class="fa fa-home"></i>
+                                    Empresa
+                                  </label>
                                     <input class="form-control"
                                     	   value="<?= $row['empresa']; ?>"
                                     	   placeholder="Empresa donde labora" 
@@ -170,6 +185,10 @@
                                 <div class="form">
                                     <!-- Cada campo -->
                                     <div class="form-group">
+                                        <label for="direccion">
+                                          <i class="fa fa-map-signs"></i>
+                                          Dirección
+                                        </label>
                                         <input class="form-control"
                                         	   value="<?= $row['direccion']; ?>"
                                         	   placeholder="Direccion" 
@@ -180,6 +199,10 @@
                                     </div>
                                     <!-- Cada campo -->
                                     <div class="form-group">
+                                        <label for="barrio">
+                                          <i class="fa fa-map"></i>
+                                          Barrio
+                                        </label>
                                         <input class="form-control"
                                         	   value="<?= $row['barrio']; ?>"
                                         	   placeholder="Barrio" 
@@ -190,6 +213,10 @@
                                     </div>
                                     <!-- Cada campo -->
                                     <div class="form-group">
+                                        <label for="email">
+                                          <i class="fa fa-envelope"></i>
+                                          Correo electrónico
+                                        </label>
                                         <input class="form-control"
                                         	   value="<?= $row['email']; ?>"
                                         	   placeholder="E-mail" 
@@ -198,6 +225,10 @@
                                     </div>
                                     <!-- Cada campo -->
                                     <div class="form-group">
+                                        <label for="telefono">
+                                          <i class="fa fa-phone"></i>
+                                          Teléfono fijo
+                                        </label>
                                         <input class="form-control"
                                         	   value="<?= $row['telefono']; ?>"
                                         	   placeholder="Teléfono fijo" 
@@ -216,6 +247,10 @@
                                 <div class="form">
                                     <!-- Cada campo -->
                                     <div class="form-group">
+                                        <label for="celular">
+                                          <i class="fa fa-mobile"></i>
+                                          Celular
+                                        </label>
                                         <input class="form-control"
                                         	   value="<?= $row['celular']; ?>"
                                         	   placeholder="Numero de celular" 
@@ -226,6 +261,10 @@
                                     </div>
                                     <!-- Cada campo -->
                                     <div class="form-group">
+                                        <label for="fechaCumple">
+                                          <i class="fa fa-calendar"></i>
+                                          Fecha de cumpleaños
+                                        </label>
                                         <input class="form-control" 
                                           	   name="fechaCumple"
                                                id="fechaCumple"
@@ -235,6 +274,10 @@
                                     </div>
                                     <!-- Cada campo -->
                                     <div class="form-group">
+                                        <label for="nohijos">
+                                          <i class="fa fa-users"></i>
+                                          Número de hijos
+                                        </label>
                                         <input class="form-control"
                                                value="<?= $row['nohijos']; ?>"
                                                placeholder="Número de hijos" 
@@ -245,6 +288,10 @@
                                     </div>
                                     <!-- Cada campo -->
                                     <div class="form-group">
+                                      <label for="sucursal">
+                                          <i class="fa fa-university"></i>
+                                          Sucursal que frecuenta
+                                      </label>
                                       <select name="sucursal" id="sucursal" class="form-control">
                                           <option value="default">Mercaldas donde realice sus compras...</option>
                                           <option <?php if($row['sucursal'] == "0"){ echo "selected"; } ?> value="0">Electrodomésticos</option>
@@ -289,6 +336,10 @@
                             <div class="tab-pane" role="tabpanel" id="complete">
                                 <!-- Cada campo -->
                                 <div class="form-group">
+                                    <label for="sexo">
+                                        <i class="fa fa-mars-double"></i>
+                                        Genero
+                                    </label>
                                     <select name="sexo" class="form-control">
                                         <option value="default">Seleccione...</option>
                                         <option <?php if($row['sexo'] == "M"){ echo "selected"; } ?> value="m">Masculino</option>
@@ -296,6 +347,10 @@
                                         <option <?php if($row['sexo'] == "I"){ echo "selected"; } ?> value="i">Indefinido</option>
                                     </select>
                                 </div>
+                                <label for="check-custom">
+                                    <i class="fa fa-paragraph"></i>
+                                    Terminos y condiciones
+                                </label><br>
                                 <input id="check-custom" name="try" type="checkbox" onClick="cambiaValor(this)">
                                 <input type="text" name="habeasData" id="checkboxvalidation" hidden>
                                 <a class="link-custom" href="https://www.mercaldas.com.co/politica-privacidad" target="_BLANK"> Acepto términos y condiciones.

@@ -187,6 +187,10 @@ button.btn-danger-custom{
 button.btn-danger-custom:hover{
 	color:white;
 }
+
+.modal-dialog{
+  margin-top: 20vh;
+}
 /***********************/
 /* Estilos formulario */
 form#form-crono, form#form-archivo, form#form-update, div#form-search, form#form-segmentacion{

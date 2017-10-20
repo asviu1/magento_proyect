@@ -6,7 +6,7 @@ setTimeout(function(){
   $('#closeModal, #onload').click(function(event) {
     location.replace('cerrar_session.php');
   });
-}, 1000);
+}, 60000);
 
 
  $(document).ready(function () {
