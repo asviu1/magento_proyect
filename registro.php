@@ -274,10 +274,10 @@
                             <input class="form-control" name="insertTable" value="<?php echo date("F j, Y, g:i a"); ?>" type="hidden">
                             <ul class="list-inline pull-right">
                                 <li>
-                                    <button type="button" class="button1 prev-step">Anterior</button>
+                                    <button class="button1 prev-step">Anterior</button>
                                 </li>
                                 <li>
-                                    <button class="button1 btn-info-full next-step-4" id="btn-send">
+                                    <button type="button" class="button1 btn-info-full next-step-4" id="btn-send">
                                         <i class="fa fa-send"></i>
                                         &nbsp Enviar
                                     </button>
@@ -291,50 +291,60 @@
         </section>
    </div>
 </div>
-  </div>
-    <?php
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/all.js"></script>
+<script src="js/jquery.form-validator.min.js"></script>
+<script>
+  $(document).ready(function($){
+      $.validate({ form: '#form-register' });
+  });
+</script>
+      <?php
 
-          if($_POST){
+        if($_POST){
 
-            include "conexion_bd.php";
+          include "conexion_bd.php";
 
-            # Recolección de datos.
-            $codigo          = $_POST['codigo'];
-            $nombre          = $_POST['nombre'];
-            $cedula          = $_POST['cedula'];
-            $profesion       = $_POST['profesion'];
-            $empresa         = $_POST['empresa'];
-            $direccion       = $_POST['direccion'];
-            $barrio          = $_POST['barrio'];
-            $email           = $_POST['email'];
-            $telefono        = $_POST['telefono'];
-            $celular         = $_POST['celular'];
-            $fechaCumple     = $_POST['fechaCumple'];
-            $nohijos         = $_POST['nohijos'];
-            $sucursal        = $_POST['sucursal'];
-            $sexo            = $_POST['sexo'];
-            $habeasData      = $_POST['habeasData'];
-            $clubVino        = $_POST['clubVino'];
-            $avvillas        = $_POST['avvillas'];
-            $insertTable     = $_POST['insertTable'];
+          # Recolección de datos.
+          $codigo          = $_POST['codigo'];
+          $nombre          = $_POST['nombre'];
+          $cedula          = $_POST['cedula'];
+          $profesion       = $_POST['profesion'];
+          $empresa         = $_POST['empresa'];
+          $direccion       = $_POST['direccion'];
+          $barrio          = $_POST['barrio'];
+          $email           = $_POST['email'];
+          $telefono        = $_POST['telefono'];
+          $celular         = $_POST['celular'];
+          $fechaCumple     = $_POST['fechaCumple'];
+          $nohijos         = $_POST['nohijos'];
+          $sucursal        = $_POST['sucursal'];
+          $sexo            = $_POST['sexo'];
+          $habeasData      = $_POST['habeasData'];
+          $clubVino        = $_POST['clubVino'];
+          $avvillas        = $_POST['avvillas'];
+          $insertTable     = $_POST['insertTable'];
 
-            # Conversión de la variable tipo fecha a entero
-            $variable        = strtotime($fechaCumple);
+          # Conversión de la variable tipo fecha a entero
+          $variable        = strtotime($fechaCumple);
 
-            $date1 = idate('m', $variable);
+          $date1 = idate('m', $variable);
 
-            $date2 = idate('d', $variable);
+          $date2 = idate('d', $variable);
 
-            if($date2 <= 9 ){
-               $date2 = "0".idate('d', $variable);
-            }
+          if($date2 <= 9 ){
+             $date2 = "0".idate('d', $variable);
+          }
 
-            $fechaNacimiento = $date1.$date2;
+          $fechaNacimiento = $date1.$date2;
 
-            # Condicional que los datos no vengan vacios. 
-            if($codigo != "" && $nombre != "" && $cedula != "" && $profesion != "" &&  $empresa != "" &&  $direccion != "" &&  $barrio != "" &&  $email != "" &&  $telefono != "" &&  $celular != "" &&  $fechaCumple != "" &&  $nohijos != "" &&  $sucursal != "" &&  $sexo != "default" &&  $habeasData != "0" &&  $clubVino != "" &&  $avvillas != ""){
+          # Condicional que los datos no vengan vacios. 
+          if($codigo != "" && $nombre != "" && $cedula != "" && $profesion != "" &&  $empresa != "" &&  $direccion != "" &&  $barrio != "" &&  $email != "" &&  $telefono != "" &&  $celular != "" &&  $fechaCumple != "" &&  $nohijos != "" &&  $sucursal != "" &&  $sexo != "default" &&  $habeasData != "0" &&  $clubVino != "" &&  $avvillas != ""){
 
-              $sql = "INSERT INTO clientes VALUES('$codigo', '$nombre', '$cedula', '$profesion', '$empresa', '$direccion', '$barrio', '$email', '$telefono', '$celular', '$fechaNacimiento', '$fechaCumple', '$nohijos', '$sucursal', '$sexo', '$habeasData', '$clubVino', '$avvillas')";
+            $sql = "INSERT INTO clientes VALUES('$codigo', '$nombre', '$cedula', '$profesion', '$empresa', '$direccion', '$barrio', '$email', '$telefono', '$celular', '$fechaNacimiento', '$fechaCumple', '$nohijos', '$sucursal', '$sexo', '$habeasData', '$clubVino', '$avvillas')";
 
                 if(mysqli_query($con, $sql)){
                   echo "<script>
@@ -343,25 +353,15 @@
                         </script>";
                 } else {
                   echo "<script>
-                          alert('Ocurrió un error al insertar. Por favor vuelva a intentarlo');
-                          location.replace('registro.php');
+                          alertify.error('Ocurrió un error al insertar. Por favor vuelva a intentarlo');
                         </script>";
                 }
             } else {
-              echo "<script>
-                      alert('Campos vacíos o nulos, por favor completarlos');
-                   </script>";
-            }
-          }
-    ?>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/custom.js"></script>
-    <script src="js/jquery.form-validator.min.js"></script>
-    <script>
-      $(document).ready(function($){
-          $.validate({ form: '#form-register' });
-      });
-    </script>
-  </body>
+                  echo "<script>
+                          alertify.error('Campos vacíos por favor valide de nuevo');
+                        </script>";
+                }
+        }
+  ?>
+</body>
 </html>

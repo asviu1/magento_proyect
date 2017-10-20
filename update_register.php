@@ -316,87 +316,102 @@
                             <div class="clearfix"></div>
                         </div>
                     </form>
-                    <?php
-
-                        if($_POST){
-
-                            include "conexion_bd.php";
-
-                            # Recolección de datos. 
-                            $codigo          = $_POST['codigo'];
-                            $nombre          = $_POST['nombre'];
-                            $cedula          = $_POST['cedula'];
-                            $profesion       = $_POST['profesion'];
-                            $empresa         = $_POST['empresa'];
-                            $direccion       = $_POST['direccion'];
-                            $barrio          = $_POST['barrio'];
-                            $email           = $_POST['email'];
-                            $telefono        = $_POST['telefono'];
-                            $celular         = $_POST['celular'];
-                            $fechaCumple     = $_POST['fechaCumple'];
-                            $nohijos         = $_POST['nohijos'];
-                            $sucursal        = $_POST['sucursal'];
-                            $sexo            = $_POST['sexo'];
-                            $habeasData      = $_POST['habeasData'];
-                            $clubVino        = $_POST['clubVino'];
-                            $avvillas        = $_POST['avvillas'];
-
-                            # Conversión de la variable tipo fecha a entero
-                            $variable        = strtotime($fechaCumple);
-                            
-                            # Conversión de la variable tipo fecha a entero
-                            $variable        = strtotime($fechaCumple);
-
-                            $date1 = idate('m', $variable);
-
-                            $date2 = idate('d', $variable);
-
-                            if($date2 <= 9 ){
-                               $date2 = "0".idate('d', $variable);
-                            }
-
-                            $fechaNacimiento = $date1.$date2;
-
-                            # Condicional que los datos no vengan vacios. 
-                            if($codigo != "" && $nombre != "" && $cedula != "" && $profesion != "" &&  $empresa != "" &&  $direccion != "" &&  $barrio != "" &&  $telefono != "" &&  $celular != "" &&  $fechaNacimiento != "" &&  $nohijos != "" &&  $sucursal != "" &&  $sexo != "default" &&  $habeasData != "" &&  $clubVino != "" &&  $avvillas != ""){
-
-                                # SQL de actualizar los datos.
-                                $sql = "UPDATE clientes SET codigo = '$codigo', nombre = '$nombre', cedula = '$cedula', profesion = '$profesion', empresa = '$empresa', direccion = '$direccion', barrio = '$barrio', email = '$email', telefono = '$telefono', celular = '$celular', fechaNacimiento = '$fechaNacimiento', fechaCumple = '$fechaCumple', nohijos = '$nohijos', sucursal = '$sucursal', sexo = '$sexo', habeasData = '$habeasData', clubVino = '$clubVino', avvillas = '$avvillas' WHERE cedula = $cedula";
-
-                                  #Condicional si fué efectuoso el actualizar los datos
-                                  if(mysqli_query($con, $sql)){
-                                      echo "<script>
-                                              alert('Se modificó con éxito');
-                                              location.replace('cerrar_session.php');
-                                            </script>";
-                                  } else {
-                                      echo "<script>
-                                              alert('Ocurrió un error, por favor vuelve a intentarlo');
-                                            </script>";
-                                  }
-                            
-                            # Else del condicional si hay algún campo vacío.
-                             } else {
-                                  echo "<script>
-                                          alert('Hay algún campo vacio, por favor diligencielos');
-                                        </script>";
-                              }
-                        }
-
-                  ?>
                 </div>
             </section>
        </div>
     </div>
   </div>
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- ************************************ -->
+  <!-- Ventana modal para el tiempo vencido -->
+  <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"  id="onload">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-body text-center">
+          <button class="btn-danger-custom" id="closeModal">
+            <i class="fa fa-times"></i>
+          </button>
+           <p>Sesión cerrada por inactividad</p>
+           <p>¡Gracias por visitarnos te esperamos pronto!</p>
+           <img class="img-responsive center-block" src="imgs/logo.png">
+          </div>
+         
+        </div>
+      </div>
+  </div>
+  <!-- ************************************ -->
+   <script src="js/jquery-3.1.1.min.js"></script>
    <script src="js/bootstrap.min.js"></script>
    <script src="js/custom.js"></script>
    <script src="js/jquery.form-validator.min.js"></script>
+   <script src="js/all.js"></script>
    <script>
       $(document).ready(function($){
           $.validate({ form: '#updateForm' });
       });
    </script>
+   <?php
+
+        if($_POST){
+
+            include "conexion_bd.php";
+
+            # Recolección de datos. 
+            $codigo          = $_POST['codigo'];
+            $nombre          = $_POST['nombre'];
+            $cedula          = $_POST['cedula'];
+            $profesion       = $_POST['profesion'];
+            $empresa         = $_POST['empresa'];
+            $direccion       = $_POST['direccion'];
+            $barrio          = $_POST['barrio'];
+            $email           = $_POST['email'];
+            $telefono        = $_POST['telefono'];
+            $celular         = $_POST['celular'];
+            $fechaCumple     = $_POST['fechaCumple'];
+            $nohijos         = $_POST['nohijos'];
+            $sucursal        = $_POST['sucursal'];
+            $sexo            = $_POST['sexo'];
+            $habeasData      = $_POST['habeasData'];
+            $clubVino        = $_POST['clubVino'];
+            $avvillas        = $_POST['avvillas'];
+
+            # Conversión de la variable tipo fecha a entero
+            $variable        = strtotime($fechaCumple);
+            
+            # Conversión de la variable tipo fecha a entero
+            $variable        = strtotime($fechaCumple);
+
+            $date1 = idate('m', $variable);
+
+            $date2 = idate('d', $variable);
+
+            if($date2 <= 9 ){
+               $date2 = "0".idate('d', $variable);
+            }
+
+            $fechaNacimiento = $date1.$date2;
+
+            # Condicional que los datos no vengan vacios. 
+            if($codigo != "" && $nombre != "" && $cedula != "" && $profesion != "" &&  $empresa != "" &&  $direccion != "" &&  $barrio != "" &&  $telefono != "" &&  $celular != "" &&  $fechaNacimiento != "" &&  $nohijos != "" &&  $sucursal != "" &&  $sexo != "default" &&  $habeasData != "" &&  $clubVino != "" &&  $avvillas != ""){
+
+                # SQL de actualizar los datos.
+                $sql = "UPDATE clientes SET codigo = '$codigo', nombre = '$nombre', cedula = '$cedula', profesion = '$profesion', empresa = '$empresa', direccion = '$direccion', barrio = '$barrio', email = '$email', telefono = '$telefono', celular = '$celular', fechaNacimiento = '$fechaNacimiento', fechaCumple = '$fechaCumple', nohijos = '$nohijos', sucursal = '$sucursal', sexo = '$sexo', habeasData = '$habeasData', clubVino = '$clubVino', avvillas = '$avvillas' WHERE cedula = $cedula";
+
+                  #Condicional si fué efectuoso el actualizar los datos
+                  if(mysqli_query($con, $sql)){
+                      echo "<script>
+                              alertify.success('Cambios guardados con éxito');
+                            </script>";
+                  }
+                  
+            # Else del condicional si hay algún campo vacío.
+             } else {
+                  echo "<script>
+                          alertify.error('Hay algún campo vacio, por favor diligencielos');
+                        </script>";
+              }
+        }
+
+  ?>
 </body>
 </html>

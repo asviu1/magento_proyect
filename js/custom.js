@@ -1,9 +1,12 @@
-$(window).load(function(){
-    $('#onload').modal('show');
+$(document).ready(function () {
+    $('#onload').modal('hide');
 });
 setTimeout(function(){
-  $('.modal').modal('hide')
-}, 10000);
+  $('.modal').modal('show');
+  $('#closeModal, #onload').click(function(event) {
+    location.replace('cerrar_session.php');
+  });
+}, 1000);
 
 
  $(document).ready(function () {
@@ -30,7 +33,7 @@ setTimeout(function(){
         var empresa   = $("#empresa").val();
         // Validación si las variables están vacías
         if( nombre == "" || cedula == "" || profesion == "" || empresa == ""){
-            alert('Hay campos vacíos, por favor completelos.');
+            alertify.error('Hay campos vacíos, por favor completelos');
         } else {
             var $active = $('.wizard .nav-tabs li.active');
             $active.next().removeClass('disabled');
@@ -46,7 +49,7 @@ setTimeout(function(){
         var telefono   = $("#telefono").val();
         // Validación si las variables están vacías
         if( direccion == "" || barrio == "" || telefono == ""){
-            alert('Hay campos vacíos, por favor completelos.');
+            alertify.error('Hay campos vacíos, por favor completelos');
         } else {
             var $active = $('.wizard .nav-tabs li.active');
             $active.next().removeClass('disabled');
@@ -64,7 +67,7 @@ setTimeout(function(){
         var sucursal    = $("#sucursal").val();
         // Validación si las variables están vacías
         if( celular == "" || fechaCumple == "" || nohijos == "" || sucursal == "default"){
-            alert('Hay campos vacíos, por favor completelos.');
+            alertify.error('Hay campos vacíos, por favor completelos');
         } else {
             var $active = $('.wizard .nav-tabs li.active');
             $active.next().removeClass('disabled');
@@ -81,7 +84,7 @@ setTimeout(function(){
         // Validación si las variables están vacías
         if( sexo == "" || checkboxvalidation == ""){
             $("#btn-send").prop("type", "button");
-            alert('Por favor diligencie los campos y acepte los términos de contrato');
+            alertify.error('Por favor diligencie los campos y acepte los términos de contrato');
         } else {
             $("#btn-send").prop("type", "submit");
             var $active = $('.wizard .nav-tabs li.active');

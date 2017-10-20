@@ -685,6 +685,18 @@ a.a-home{
   margin:10px auto;
 }
 
+button.btn-danger-custom{
+  border-radius:5px;
+  border:1px solid transparent;
+  background-color: #E00009;
+  position:relative;
+  float:right;
+  color:white;
+}
+button.btn-danger-custom:hover{
+  color:white;
+}
+
 /* Styles of Jquery validator  */
 /******************************/
 div.form-group{

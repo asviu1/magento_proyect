@@ -20,12 +20,11 @@
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/custom.css">
 	<link rel="stylesheet" href="css/customCss.css">
-	<script src="js/settimeout.js"></script>
 </head>
 <body>
 	<div class="container-fluid div-center">
 		<div class="row">
-			<div class="col-lg-offset-3 col-lg-5 col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 div-container border-black">
+			<div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 div-container border-black">
 				<div class="col-lg-12 bg-img border-black"></div>
 				<h3 class="main-title-user">Bienvenido <?= $_SESSION['user']; ?></h3>
 				<a href="cerrar_session.php" class="log-out" id="cerrar_session">
@@ -61,14 +60,34 @@
 							} else {
 								echo "0";
 							}
-
 						?>
 					</h1>
 				</div>
 			</div>
 		</div>
 	</div>
+	<!-- ************************************ -->
+	<!-- Ventana modal para el tiempo vencido -->
+	<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"  id="onload">
+	    <div class="modal-dialog">
+	      <div class="modal-content">
+
+	        <div class="modal-body text-center">
+	        <button class="btn btn-danger-custom" id="closeModal">
+	        	<i class="fa fa-times"></i>
+	        </button>
+	         <p>Sesión cerrada por inactividad</p>
+	         <p>¡Gracias por visitarnos te esperamos pronto!</p>
+	         <img class="img-responsive center-block" src="imgs/logo.png">
+	        </div>
+	       
+	      </div>
+	    </div>
+	</div>
+	<!-- ************************************ -->
 	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/custom.js"></script>
 	<script src="js/hidden_content.js"></script>
 	<script src="js/all.js"></script>
 	<script>

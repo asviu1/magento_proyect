@@ -373,7 +373,7 @@ angular.module("ngAlertify",[]).factory("alertify",function(){"use strict";var t
             location.replace('login.php');
         }, function(ev) {
             ev.preventDefault();
-            location.replace('login.php');
+            alertify.success('Por favor verifique los datos de nuevo');
         });
     });
 
@@ -393,6 +393,16 @@ angular.module("ngAlertify",[]).factory("alertify",function(){"use strict";var t
             location.replace('index.php');
         }, function(ev) {
             ev.preventDefault();
+        });
+    });
+    
+    demo("#updateOk", function (ev) {
+        alertify.confirm("¿Desea guardar los cambios?", function (ev) {
+            ev.preventDefault();
+            location.replace('index.php');
+        }, function(ev) {
+            ev.preventDefault();
+            alertify.success('Verifique sus cambios.');
         });
     });
 

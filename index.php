@@ -1,5 +1,9 @@
 <?php
 	header('Content-type: text/html; charset=utf-8');
+
+	#Acá se destroye la variable de session $_SESSION['cedula'] por si le da click a volver
+	session_start();
+	session_destroy();
 ?>
 <!DOCTYPE html>
 <html lang="es">
