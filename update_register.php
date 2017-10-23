@@ -153,7 +153,7 @@
                                   <label for="profesion">
                                     <i class="fa fa-graduation-cap"></i>
                                     Profesion
-                                    </label>
+                                  </label>
                                     <input class="form-control"
                                            value="<?= $row['profesion']; ?>" 
                                            placeholder="Profesión" 
@@ -263,7 +263,7 @@
                                     <div class="form-group">
                                         <label for="fechaCumple">
                                           <i class="fa fa-calendar"></i>
-                                          Fecha de cumpleaños
+                                          Fecha de nacimiento
                                         </label>
                                         <input class="form-control" 
                                           	   name="fechaCumple"

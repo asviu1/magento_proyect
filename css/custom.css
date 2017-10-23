@@ -706,11 +706,20 @@ label.custom-label{
   color:rgba(0,0,0,0.8);
 }
 
+.wizard .nav-tabs > li a:hover{
+  border:1px solid transparent;
+}
+
+.obligatorio::placeholder{
+  color: rgba(185, 74, 72, 0.9);
+  font-size:12px;
+  font-style: italic;
+}
+
 /* Styles of Jquery validator  */
 /******************************/
 div.form-group{
   position:relative;
-  margin-bottom:22px;
 }
 span.help-block.form-error{
   color:rgb(170,0,0);

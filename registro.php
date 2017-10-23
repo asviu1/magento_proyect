@@ -82,8 +82,12 @@
                             <input class="form-control" value="000000" name="codigo" type="hidden">
                             <!-- Cada campo -->
                             <div class="form-group">
-                                <input class="form-control" 
-                                       placeholder="Nombre completo" 
+                                <label for="nombre">
+                                    <i class="fa fa-user-circle"></i>
+                                    Nombre
+                                </label>
+                                <input class="form-control obligatorio" 
+                                       placeholder="Este campo es obligatorio *" 
                                        name="nombre"
                                        id="nombre"
                                        type="text"
@@ -92,8 +96,12 @@
                             </div>
                             <!-- Cada campo -->
                             <div class="form-group">
-                                <input class="form-control" 
-                                       placeholder="Cedula" 
+                                <label for="cedula">
+                                  <i class="fa fa-address-book"></i>
+                                  Documento
+                                </label>
+                                <input class="form-control obligatorio" 
+                                       placeholder="Este campo es obligatorio *" 
                                        name="cedula"
                                        <?php if (isset($_SESSION['cedula'])): ?>
                                        value="<?= $_SESSION['cedula'] ?>"
@@ -105,8 +113,12 @@
                             </div>
                             <!-- Cada campo -->
                             <div class="form-group">
-                                <input class="form-control" 
-                                       placeholder="Profesión" 
+                                <label for="profesion">
+                                    <i class="fa fa-graduation-cap"></i>
+                                    Profesion
+                                </label>
+                                <input class="form-control obligatorio" 
+                                       placeholder="Este campo es obligatorio *" 
                                        name="profesion"
                                        id="profesion"
                                        type="text"
@@ -115,8 +127,12 @@
                             </div>
                             <!-- Cada campo -->
                             <div class="form-group">
-                                <input class="form-control" 
-                                       placeholder="Empresa donde labora" 
+                                <label for="empresa">
+                                    <i class="fa fa-home"></i>
+                                    Empresa
+                                </label>
+                                <input class="form-control obligatorio" 
+                                       placeholder="Este campo es obligatorio *" 
                                        name="empresa"
                                        id="empresa"
                                        type="text"
@@ -134,8 +150,12 @@
                             <div class="form">
                                 <!-- Cada campo -->
                                 <div class="form-group">
-                                    <input class="form-control" 
-                                           placeholder="Direccion" 
+                                    <label for="direccion">
+                                        <i class="fa fa-map-signs"></i>
+                                        Dirección
+                                      </label>
+                                    <input class="form-control obligatorio" 
+                                           placeholder="Este campo es obligatorio *" 
                                            name="direccion"
                                            id="direccion"
                                            type="text"
@@ -144,8 +164,12 @@
                                 </div>
                                 <!-- Cada campo -->
                                 <div class="form-group">
-                                    <input class="form-control" 
-                                           placeholder="Barrio" 
+                                     <label for="barrio">
+                                        <i class="fa fa-map"></i>
+                                        Barrio
+                                      </label>
+                                    <input class="form-control obligatorio" 
+                                           placeholder="Este campo es obligatorio *" 
                                            name="barrio"
                                            id="barrio"
                                            type="text"
@@ -154,7 +178,11 @@
                                 </div>
                                 <!-- Cada campo -->
                                 <div class="form-group">
-                                    <input class="form-control" 
+                                    <label for="email">
+                                      <i class="fa fa-envelope"></i>
+                                      Correo electrónico
+                                    </label>
+                                    <input class="form-control"
                                            placeholder="E-mail" 
                                            name="email"
                                            type="text"
@@ -162,8 +190,12 @@
                                 </div>
                                 <!-- Cada campo -->
                                 <div class="form-group">
-                                    <input class="form-control" 
-                                           placeholder="Teléfono fijo" 
+                                    <label for="telefono">
+                                      <i class="fa fa-phone"></i>
+                                      Teléfono fijo
+                                    </label>
+                                    <input class="form-control obligatorio" 
+                                           placeholder="Este campo es obligatorio *" 
                                            name="telefono" 
                                            id="telefono" 
                                            type="number"
@@ -180,8 +212,12 @@
                             <div class="form">
                                 <!-- Cada campo -->
                                 <div class="form-group">
-                                    <input class="form-control" 
-                                           placeholder="Numero de celular" 
+                                    <label for="celular">
+                                      <i class="fa fa-mobile"></i>
+                                      Celular
+                                    </label>
+                                    <input class="form-control obligatorio" 
+                                           placeholder="Este campo es obligatorio *" 
                                            name="celular"
                                            id="celular"
                                            type="number"
@@ -190,19 +226,27 @@
                                 </div>
                                 <!-- Cada campo -->
                                 <div class="form-group">
-                                    <input class="form-control" 
+                                    <label for="fechaCumple">
+                                      <i class="fa fa-calendar"></i>
+                                      Fecha de nacimiento
+                                    </label>
+                                    <input class="form-control obligatorio" 
                                            name="fechaCumple"
                                            id="fechaCumple"
                                            type="text"
-                                           placeholder="Fecha de nacimiento"
+                                           placeholder="Este campo es obligatorio *"
                                            onfocus="(this.type='date')"
                                            data-validation="required"
                                            value="<?php if(isset($_POST['fechaCumple'])){ echo $_POST['fechaCumple']; } ?>">
                                 </div>
                                 <!-- Cada campo -->
                                 <div class="form-group">
-                                    <input class="form-control"
-                                           placeholder="Número de hijos" 
+                                    <label for="nohijos">
+                                      <i class="fa fa-users"></i>
+                                      Número de hijos
+                                    </label>
+                                    <input class="form-control obligatorio"
+                                           placeholder="Este campo es obligatorio *" 
                                            name="nohijos"
                                            id="nohijos"
                                            type="number"
@@ -211,8 +255,12 @@
                                 </div>
                                 <!-- Cada campo -->
                                 <div class="form-group">
+                                  <label for="sucursal">
+                                      <i class="fa fa-university"></i>
+                                      Sucursal donde realiza sus compras
+                                  </label>
                                   <select name="sucursal" id="sucursal" class="form-control">
-                                      <option value="default">Mercaldas donde realice sus compras...</option>
+                                      <option value="default">Seleccione una opcion...</option>
                                       <option value="0">Electrodomésticos</option>
                                       <option value="1">Centro</option>
                                       <option value="2">Sultana</option>
@@ -250,6 +298,10 @@
                         </div>
                         <div class="tab-pane" role="tabpanel" id="complete">
                             <div class="form-group">
+                                <label for="sexo">
+                                    <i class="fa fa-mars-double"></i>
+                                    Genero
+                                </label>
                                 <select name="sexo" id="sexo" class="form-control">
                                     <option value="default">Seleccione su genero...</option>
                                     <option value="m">Masculino</option>
@@ -257,6 +309,10 @@
                                     <option value="i">Indefinido</option>
                                 </select>
                             </div>
+                             <label for="check-custom">
+                                <i class="fa fa-paragraph"></i>
+                                Terminos y condiciones
+                              </label><br>
                             <input id="check-custom" name="try" type="checkbox" onClick="cambiaValor(this)">
                             <input type="text" name="habeasData" id="checkboxvalidation" hidden>
                             <a class="link-custom" href="https://www.mercaldas.com.co/politica-privacidad" target="_BLANK"> Acepto términos y condiciones.
