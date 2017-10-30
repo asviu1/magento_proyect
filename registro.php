@@ -1,11 +1,17 @@
 <?php
-  header('Content-type: text/html; charset=utf-8');
   session_start();
+
+  include "conexion_bd.php";
+
+  $id = 1;
+
+  $query = mysqli_query($con, "SELECT ganaMercaldas FROM reglamento WHERE id = '$id'");
+  $row = mysqli_fetch_array($query);
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Registrarse</title>
@@ -233,11 +239,10 @@
                                     <input class="form-control obligatorio" 
                                            name="fechaCumple"
                                            id="fechaCumple"
-                                           type="text"
+                                           type="date"
                                            placeholder="Este campo es obligatorio *"
-                                           onfocus="(this.type='date')"
                                            data-validation="required"
-                                           value="<?php if(isset($_POST['fechaCumple'])){ echo $_POST['fechaCumple']; } ?>">
+                                           value="1998-01-01">
                                 </div>
                                 <!-- Cada campo -->
                                 <div class="form-group">
@@ -261,33 +266,22 @@
                                   </label>
                                   <select name="sucursal" id="sucursal" class="form-control">
                                       <option value="default">Seleccione una opcion...</option>
-                                      <option value="0">Electrodomésticos</option>
-                                      <option value="1">Centro</option>
-                                      <option value="2">Sultana</option>
-                                      <option value="3">La fuente</option>
-                                      <option value="5">Palmas</option>
-                                      <option value="6">Medicamentos</option>
                                       <option value="8">Av. Kevin Angel</option>
-                                      <option value="11">Palermo</option>
-                                      <option value="12">San José</option>
                                       <option value="14">Calleja</option>
-                                      <option value="15">Enea</option>
-                                      <option value="16">Villamaria</option>
-                                      <option value="33">Neira</option>
-                                      <option value="43">Central de Carnes</option>
-                                      <option value="50">Versalles</option>
-                                      <option value="51">Central de Abarrotes</option>
-                                      <option value="52">San Marcel</option>
-                                      <option value="53">Cent. Proc. Carnicos</option>
-                                      <option value="54">Central Fruver</option>
-                                      <option value="55">Suministros</option>
-                                      <option value="58">Central de Panaderia</option>
-                                      <option value="68">Central Panaderia Versalles</option>
-                                      <option value="90">Central</option>
                                       <option value="ch">Campo Hermoso</option>
+                                      <option value="1">Centro</option>
                                       <option value="cr">Cristo Rey</option>
+                                      <option value="15">Enea</option>
+                                      <option value="0">Electrodomésticos</option>
+                                      <option value="3">La fuente</option>
                                       <option value="lr">La Rochela</option>
+                                      <option value="33">Neira</option>
+                                      <option value="5">Palmas</option>
+                                      <option value="11">Palermo</option>
+                                      <option value="52">San Marcel</option>
                                       <option value="st">Santagueda</option>
+                                      <option value="2">Sultana</option>
+                                      <option value="50">Versalles</option>
                                   </select>
                               </div>
                             </div>
@@ -304,9 +298,9 @@
                                 </label>
                                 <select name="sexo" id="sexo" class="form-control">
                                     <option value="default">Seleccione su genero...</option>
-                                    <option value="m">Masculino</option>
-                                    <option value="f">Femenino</option>
-                                    <option value="i">Indefinido</option>
+                                    <option value="M">Masculino</option>
+                                    <option value="F">Femenino</option>
+                                    <option value="I">Indefinido</option>
                                 </select>
                             </div>
                              <label for="check-custom">
@@ -314,12 +308,10 @@
                                 Terminos y condiciones
                               </label><br>
                             <input id="check-custom" name="try" type="checkbox" onClick="cambiaValor(this)">
-                            <input type="text" name="habeasData" id="checkboxvalidation" hidden>
+                            <input type="text" name="habeasData" id="checkboxvalidation">
                             <a class="link-custom" href="https://www.mercaldas.com.co/politica-privacidad" target="_BLANK"> Acepto términos y condiciones.
                             </a>
-                            <textarea id="text-custom" cols="30" rows="5" class="form-control" readonly>
-                            <?php include 'politicas.php'; ?>
-                            </textarea>
+                            <textarea id="text-custom" cols="30" rows="5" class="form-control" readonly><?php echo utf8_decode($row['ganaMercaldas'])?></textarea>
                             <!-- Campo oculto que después se reemplaza -->
                             <input class="form-control" value="00" name="clubVino" type="hidden">
                             <!-- Campo oculto que después se reemplaza -->
@@ -330,7 +322,7 @@
                             <input class="form-control" name="insertTable" value="<?php echo date("F j, Y, g:i a"); ?>" type="hidden">
                             <ul class="list-inline pull-right">
                                 <li>
-                                    <button class="button1 prev-step">Anterior</button>
+                                    <button type="button" class="button1 prev-step">Anterior</button>
                                 </li>
                                 <li>
                                     <button type="button" class="button1 btn-info-full next-step-4" id="btn-send">
@@ -361,8 +353,6 @@
       <?php
 
         if($_POST){
-
-          include "conexion_bd.php";
 
           # Recolección de datos.
           $codigo          = $_POST['codigo'];
@@ -403,6 +393,13 @@
             $sql = "INSERT INTO clientes VALUES('$codigo', '$nombre', '$cedula', '$profesion', '$empresa', '$direccion', '$barrio', '$email', '$telefono', '$celular', '$fechaNacimiento', '$fechaCumple', '$nohijos', '$sucursal', '$sexo', '$habeasData', '$clubVino', '$avvillas')";
 
                 if(mysqli_query($con, $sql)){
+
+                      #Inserción en la tabla de clientes nuevos para tener seguimiento
+                      $sql2 = "INSERT INTO clientesnuevos VALUES('$codigo', '$nombre', '$cedula', '$profesion', '$empresa', '$direccion', '$barrio', '$email', '$telefono', '$celular', '$fechaNacimiento', '$fechaCumple', '$nohijos', '$sucursal', '$sexo', '$habeasData', '$clubVino', '$avvillas')";
+
+                      $query = mysqli_query($con, $sql2);
+
+                   // Validación de si insertó con éxito
                   echo "<script>
                           alert('Se insertó con éxito');
                           location.replace('login.php');

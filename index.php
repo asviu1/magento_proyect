@@ -62,7 +62,7 @@
 				$_SESSION['cedula'] = $row['cedula'];
 
 				echo "<script>
-						$('#dbOk').click();
+						location.replace('login.php');
 					 </script>";
 			} else {
 
@@ -70,7 +70,7 @@
 				$_SESSION['cedula'] = $_POST['cedula'];
 				
 				echo "<script>
-						$('#dbNo').click();
+						location.replace('registro.php');
 					 </script>";
 			}
 		}

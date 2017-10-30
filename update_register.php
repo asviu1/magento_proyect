@@ -76,7 +76,7 @@
 
             ?>
     		<section class="col-md-6 col-md-offset-3">
-              <h2 class="green-text text-center"><span><img src="imgs/edit.png"></span> Actualizacion datos</h2>
+              <h2 class="green-text text-center"><span><img src="imgs/edit.png"></span> Actualización datos</h2>
                 <div class="wizard">
                     <div class="wizard-inner">
                         <div class="connecting-line"></div>
@@ -126,12 +126,13 @@
                                       <i class="fa fa-user-circle"></i>
                                       Nombre
                                     </label>
-                                    <input class="form-control"
+                                    <input class="form-control obligatorio"
                                     	   value="<?= $row['nombre']; ?>" 
                                     	   name="nombre"
-                                         id="nombre"
+                                           id="nombre"
+                                           placeholder="Este campo es obligatorio *"
                                     	   type="text"
-                                         data-validation="required">
+                                           data-validation="required">
                                 </div>
                                 <!-- Cada campo -->
                                 <div class="form-group">
@@ -139,9 +140,9 @@
                                     <i class="fa fa-address-book"></i>
                                     Documento
                                   </label>
-                                    <input class="form-control"
+                                    <input class="form-control obligatorio"
                                     	   value="<?= $row['cedula']; ?>" 
-                                           placeholder="Cedula" 
+                                           placeholder="Este campo es obligatorio *" 
                                            name="cedula"
                                            id="cedula" 
                                            type="number"
@@ -154,9 +155,9 @@
                                     <i class="fa fa-graduation-cap"></i>
                                     Profesion
                                   </label>
-                                    <input class="form-control"
+                                    <input class="form-control obligatorio"
                                            value="<?= $row['profesion']; ?>" 
-                                           placeholder="Profesión" 
+                                           placeholder="Este campo es obligatorio *" 
                                            name="profesion"
                                            id="profesion" 
                                            type="text"
@@ -168,13 +169,13 @@
                                     <i class="fa fa-home"></i>
                                     Empresa
                                   </label>
-                                    <input class="form-control"
+                                    <input class="form-control obligatorio"
                                     	   value="<?= $row['empresa']; ?>"
-                                    	   placeholder="Empresa donde labora" 
+                                    	   placeholder="Este campo es obligatorio *" 
                                     	   name="empresa"
-                                         id="empresa"
+                                           id="empresa"
                                     	   type="text"
-                                         data-validation="required">
+                                           data-validation="required">
                                 </div>
                               </div>
                                 <ul class="list-inline pull-right">
@@ -189,13 +190,13 @@
                                           <i class="fa fa-map-signs"></i>
                                           Dirección
                                         </label>
-                                        <input class="form-control"
+                                        <input class="form-control obligatorio"
                                         	   value="<?= $row['direccion']; ?>"
-                                        	   placeholder="Direccion" 
+                                        	   placeholder="Este campo es obligatorio *" 
                                         	   name="direccion"
-                                             id="direccion" 
+                                               id="direccion" 
                                         	   type="text"
-                                             data-validation="required">
+                                               data-validation="required">
                                     </div>
                                     <!-- Cada campo -->
                                     <div class="form-group">
@@ -203,13 +204,13 @@
                                           <i class="fa fa-map"></i>
                                           Barrio
                                         </label>
-                                        <input class="form-control"
+                                        <input class="form-control obligatorio"
                                         	   value="<?= $row['barrio']; ?>"
-                                        	   placeholder="Barrio" 
+                                        	   placeholder="Este campo es obligatorio *" 
                                         	   name="barrio"
-                                             id="barrio" 
+                                               id="barrio" 
                                         	   type="text"
-                                             data-validation="required">
+                                               data-validation="required">
                                     </div>
                                     <!-- Cada campo -->
                                     <div class="form-group">
@@ -229,13 +230,13 @@
                                           <i class="fa fa-phone"></i>
                                           Teléfono fijo
                                         </label>
-                                        <input class="form-control"
+                                        <input class="form-control obligatorio"
                                         	   value="<?= $row['telefono']; ?>"
-                                        	   placeholder="Teléfono fijo" 
+                                        	   placeholder="Este campo es obligatorio *" 
                                         	   name="telefono"
-                                             id="telefono" 
+                                               id="telefono" 
                                         	   type="number"
-                                             data-validation="required">
+                                               data-validation="required">
                                     </div>
                                 </div>
                                 <ul class="list-inline pull-right">
@@ -251,13 +252,13 @@
                                           <i class="fa fa-mobile"></i>
                                           Celular
                                         </label>
-                                        <input class="form-control"
-                                        	   value="<?= $row['celular']; ?>"
-                                        	   placeholder="Numero de celular" 
+                                        <input class="form-control obligatorio"
+                                        	   placeholder="Este campo es obligatorio *"
+                                        	   value="<?= $row['celular'] ?>"
                                         	   name="celular"
-                                             id="celular"
+                                               id="celular"
                                         	   type="number"
-                                             data-validation="required">
+                                               data-validation="required">
                                     </div>
                                     <!-- Cada campo -->
                                     <div class="form-group">
@@ -267,8 +268,8 @@
                                         </label>
                                         <input class="form-control" 
                                           	   name="fechaCumple"
-                                               id="fechaCumple"
-                                               onfocus="(this.type='date')" 
+                                               value="<?= $row['fechaCumple']; ?>"
+                                               id="fechaCumple" 
                                           	   type="date"
                                                data-validation="required">
                                     </div>
@@ -280,7 +281,7 @@
                                         </label>
                                         <input class="form-control"
                                                value="<?= $row['nohijos']; ?>"
-                                               placeholder="Número de hijos" 
+                                               placeholder="Este campo es obligatorio *" 
                                                name="nohijos"
                                                id="nohijos" 
                                                type="number"
@@ -294,33 +295,22 @@
                                       </label>
                                       <select name="sucursal" id="sucursal" class="form-control">
                                           <option value="default">Mercaldas donde realice sus compras...</option>
-                                          <option <?php if($row['sucursal'] == "0"){ echo "selected"; } ?> value="0">Electrodomésticos</option>
-                                          <option <?php if($row['sucursal'] == "1"){ echo "selected"; } ?> value="1">Centro</option>
-                                          <option <?php if($row['sucursal'] == "2"){ echo "selected"; } ?> value="2">Sultana</option>
-                                          <option <?php if($row['sucursal'] == "3"){ echo "selected"; } ?> value="3">La fuente</option>
-                                          <option <?php if($row['sucursal'] == "5"){ echo "selected"; } ?> value="5">Palmas</option>
-                                          <option <?php if($row['sucursal'] == "6"){ echo "selected"; } ?> value="6">Medicamentos</option>
                                           <option <?php if($row['sucursal'] == "8"){ echo "selected"; } ?> value="8">Av. Kevin Angel</option>
-                                          <option <?php if($row['sucursal'] == "11"){ echo "selected"; } ?> value="11">Palermo</option>
-                                          <option <?php if($row['sucursal'] == "12"){ echo "selected"; } ?> value="12">San José</option>
                                           <option <?php if($row['sucursal'] == "14"){ echo "selected"; } ?> value="14">Calleja</option>
-                                          <option <?php if($row['sucursal'] == "15"){ echo "selected"; } ?> value="15">Enea</option>
-                                          <option <?php if($row['sucursal'] == "16"){ echo "selected"; } ?> value="16">Villamaria</option>
-                                          <option <?php if($row['sucursal'] == "33"){ echo "selected"; } ?> value="33">Neira</option>
-                                          <option <?php if($row['sucursal'] == "43"){ echo "selected"; } ?> value="43">Central de Carnes</option>
-                                          <option <?php if($row['sucursal'] == "50"){ echo "selected"; } ?> value="50">Versalles</option>
-                                          <option <?php if($row['sucursal'] == "51"){ echo "selected"; } ?> value="51">Central de Abarrotes</option>
-                                          <option <?php if($row['sucursal'] == "52"){ echo "selected"; } ?> value="52">San Marcel</option>
-                                          <option <?php if($row['sucursal'] == "53"){ echo "selected"; } ?> value="53">Cent. Proc. Carnicos</option>
-                                          <option <?php if($row['sucursal'] == "54"){ echo "selected"; } ?> value="54">Central Fruver</option>
-                                          <option <?php if($row['sucursal'] == "55"){ echo "selected"; } ?> value="55">Suministros</option>
-                                          <option <?php if($row['sucursal'] == "58"){ echo "selected"; } ?> value="58">Central de Panaderia</option>
-                                          <option <?php if($row['sucursal'] == "68"){ echo "selected"; } ?> value="68">Central Panaderia Versalles</option>
-                                          <option <?php if($row['sucursal'] == "90"){ echo "selected"; } ?> value="90">Central</option>
                                           <option <?php if($row['sucursal'] == "ch"){ echo "selected"; } ?> value="ch">Campo Hermoso</option>
+                                          <option <?php if($row['sucursal'] == "1"){ echo "selected"; } ?> value="1">Centro</option>
                                           <option <?php if($row['sucursal'] == "cr"){ echo "selected"; } ?> value="cr">Cristo Rey</option>
+                                          <option <?php if($row['sucursal'] == "15"){ echo "selected"; } ?> value="15">Enea</option>
+                                          <option <?php if($row['sucursal'] == "0"){ echo "selected"; } ?> value="0">Electrodomésticos</option>
+                                          <option <?php if($row['sucursal'] == "3"){ echo "selected"; } ?> value="3">La fuente</option>
                                           <option <?php if($row['sucursal'] == "lr"){ echo "selected"; } ?> value="lr">La Rochela</option>
+                                          <option <?php if($row['sucursal'] == "33"){ echo "selected"; } ?> value="33">Neira</option>
+                                          <option <?php if($row['sucursal'] == "5"){ echo "selected"; } ?> value="5">Palmas</option>
+                                          <option <?php if($row['sucursal'] == "11"){ echo "selected"; } ?> value="11">Palermo</option>
+                                          <option <?php if($row['sucursal'] == "52"){ echo "selected"; } ?> value="52">San Marcel</option>
                                           <option <?php if($row['sucursal'] == "st"){ echo "selected"; } ?> value="st">Santagueda</option>
+                                          <option <?php if($row['sucursal'] == "2"){ echo "selected"; } ?> value="2">Sultana</option>
+                                          <option <?php if($row['sucursal'] == "50"){ echo "selected"; } ?> value="50">Versalles</option>
                                       </select>
                                     </div>
                                     <!-- Campo oculto que después se reemplaza -->
@@ -342,9 +332,9 @@
                                     </label>
                                     <select name="sexo" class="form-control">
                                         <option value="default">Seleccione...</option>
-                                        <option <?php if($row['sexo'] == "M"){ echo "selected"; } ?> value="m">Masculino</option>
-                                        <option <?php if($row['sexo'] == "F"){ echo "selected"; } ?> value="f">Femenino</option>
-                                        <option <?php if($row['sexo'] == "I"){ echo "selected"; } ?> value="i">Indefinido</option>
+                                        <option <?php if($row['sexo'] == "M" || $row['sexo'] == "m"){ echo "selected"; } ?> value="M">Masculino</option>
+                                        <option <?php if($row['sexo'] == "F" || $row['sexo'] == "f"){ echo "selected"; } ?> value="F">Femenino</option>
+                                        <option <?php if($row['sexo'] == "I" || $row['sexo'] == "i"){ echo "selected"; } ?> value="I">Indefinido</option>
                                     </select>
                                 </div>
                                 <label for="check-custom">
@@ -455,7 +445,8 @@
                   #Condicional si fué efectuoso el actualizar los datos
                   if(mysqli_query($con, $sql)){
                       echo "<script>
-                              alertify.success('Cambios guardados con éxito');
+                              alert('Cambios guardados con éxito');
+                              location.replace('dashboard.php');
                             </script>";
                   }
                   

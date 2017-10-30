@@ -1,15 +1,5 @@
 $(document).ready(function () {
     $('#onload').modal('hide');
-});
-setTimeout(function(){
-  $('.modal').modal('show');
-  $('#closeModal, #onload').click(function(event) {
-    location.replace('cerrar_session.php');
-  });
-}, 60000);
-
-
- $(document).ready(function () {
     //Initialize tooltips
     $('.nav-tabs > li a[title]').tooltip();
     
@@ -33,7 +23,7 @@ setTimeout(function(){
         var empresa   = $("#empresa").val();
         // Validación si las variables están vacías
         if( nombre == "" || cedula == "" || profesion == "" || empresa == ""){
-            alertify.error('Hay campos vacíos, por favor completelos');
+            alertify.error('Hay campos vacíos y son obligatorios, por favor completelos');
         } else {
             var $active = $('.wizard .nav-tabs li.active');
             $active.next().removeClass('disabled');
@@ -49,7 +39,7 @@ setTimeout(function(){
         var telefono   = $("#telefono").val();
         // Validación si las variables están vacías
         if( direccion == "" || barrio == "" || telefono == ""){
-            alertify.error('Hay campos vacíos, por favor completelos');
+            alertify.error('Hay campos vacíos y son obligatorios, por favor completelos');
         } else {
             var $active = $('.wizard .nav-tabs li.active');
             $active.next().removeClass('disabled');
@@ -67,7 +57,7 @@ setTimeout(function(){
         var sucursal    = $("#sucursal").val();
         // Validación si las variables están vacías
         if( celular == "" || fechaCumple == "" || nohijos == "" || sucursal == "default"){
-            alertify.error('Hay campos vacíos, por favor completelos');
+            alertify.error('Hay campos vacíos y son obligatorios, por favor completelos');
         } else {
             var $active = $('.wizard .nav-tabs li.active');
             $active.next().removeClass('disabled');
@@ -106,4 +96,23 @@ function nextTab(elem) {
 }
 function prevTab(elem) {
     $(elem).prev().find('a[data-toggle="tab"]').click();
+}
+
+function iniciar(){
+    timeron = setTimeout(function(){
+        $('.modal').modal('show');
+        $('#closeModal, #onload').click(function(event) {
+            location.replace('cerrar_session.php');
+        });
+     }, 200000);
+}
+
+function detener(){
+    clearTimeout(timeron);
+    timeron = setTimeout(function(){
+        $('.modal').modal('show');
+        $('#closeModal, #onload').click(function(event) {
+            location.replace('cerrar_session.php');
+        });
+     }, 200000);
 }

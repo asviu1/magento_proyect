@@ -1,6 +1,8 @@
 <?php
 	include "seguridad.php";
 	header('Content-type: text/html; charset=utf-8');
+	
+	$actualTime = idate('d').'/'.idate('m').'/'.idate('Y');
 
 	if($_SESSION['document'] == "2121212"){
 		echo "<script>
@@ -11,8 +13,8 @@
 ?>
 <!DOCTYPE html>
 <html lang="es">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head><meta http-equiv="Content-Type" content="text/html; charset=gb18030">
+	
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>Dashboard</title>
 	<link rel="icon" href="imgs/favicon.png" type="img/png">
@@ -21,7 +23,7 @@
 	<link rel="stylesheet" href="css/custom.css">
 	<link rel="stylesheet" href="css/customCss.css">
 </head>
-<body>
+<body onload="iniciar()" onkeypress="detener()" onclick="detener()" onmousemove="detener()">
 	<div class="container-fluid div-center">
 		<div class="row">
 			<div class="col-lg-offset-3 col-lg-6 col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 div-container border-black">
@@ -62,6 +64,7 @@
 							}
 						?>
 					</h1>
+					<p class="points-update">Última actualización de sus puntos <?= $actualTime ?></p>
 				</div>
 			</div>
 		</div>
@@ -76,7 +79,7 @@
 	        <button class="btn btn-danger-custom" id="closeModal">
 	        	<i class="fa fa-times"></i>
 	        </button>
-	         <p>Sesión cerrada por inactividad</p>
+	         <p>Sesion cerrada por inactividad</p>
 	         <p>¡Gracias por visitarnos te esperamos pronto!</p>
 	         <img class="img-responsive center-block" src="imgs/logo.png">
 	        </div>

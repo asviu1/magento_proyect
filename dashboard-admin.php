@@ -108,22 +108,58 @@
 					</a>
 					<!-- Boton de apertura segmentacion-->
 					<a class="col-lg-12 col-md-12 col-sm-12 col-xs-12 first-button button" id="segmOpen">
-						<i class="fa fa-filter i-white left"></i>
-						&nbsp Segmentación
+						<i class="fa fa-file-word-o i-white left"></i>
+						&nbsp Reglamento
 						<i class="fa fa-plus right i-white"></i>
 					</a>
 					<!-- Boton de cierre segmentacion -->
 					<a class="col-lg-12 col-md-12 col-sm-12 col-xs-12 first-button button" id="segmClose">
-						<i class="fa fa-filter i-white left"></i>
-						&nbsp Segmentación
+						<i class="fa fa-file-word-o i-white left"></i>
+						&nbsp Reglamento
 						<i class="fa fa-minus right i-white"></i>
 					</a>
 					<!-- Contenido segmentacion -->
-					<form action="" id="form-segmentacion">
-						<select name="" id="" class="form-control">
-							<option value="">option</option>
-						</select>
+					<form id="form-segmentacion" method="post">
+						<textarea class="form-control" name="ganaMercaldas" placeholder="Aquí por favor coloque los terminos y condiciones..."></textarea><br>
+						<button type="submit" class="btn btn-success-mercaldas col-lg-offset-1 col-lg-4 col-md-offset-1 col-md-4 col-sm-offset-1 col-sm-4 col-xs-offset-1 col-xs-4">
+							<i class="fa fa-send"></i> Enviar
+						</button>
+						<button type="reset" class="btn btn-danger-mercaldas col-lg-offset-1 col-lg-4 col-md-offset-1 col-md-5 col-sm-offset-1 col-sm-4 col-xs-offset-1 col-xs-4">
+							<i class="fa fa-trash"></i> Reset
+						</button>
 					</form>
+					<?php 
+
+						if($_POST){
+
+							$id = 1;
+							$ganaMercaldas = utf8_encode($_POST['ganaMercaldas']);
+
+							// Validación server side para cuando los campos estén vacios
+								if($ganaMercaldas != ""){
+
+									// sql de inserción del campo
+									$sql = "UPDATE reglamento SET ganaMercaldas = '$ganaMercaldas' WHERE id = '$id'";
+
+									if(mysqli_query($con, $sql)){
+										echo "<script>
+												alert('Se insertó con éxito');
+										  	  </script>";
+									} else {
+										echo "<script>
+												alert('Ocurrió un problema, por favor intentelo de nuevo');
+											  </script>";
+									}
+							// **********************************************************
+							// Validación server side para cuando los campos estén vacios
+							} else {
+								echo "<script>
+										alert('Por favor diligencie el campo de los terminos y condiciones');
+									  </script>";
+							}
+
+						}
+					?>
 				</div>
 			</div>
 		</div>

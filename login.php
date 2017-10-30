@@ -124,7 +124,7 @@
 				$sql = mysqli_query($con, "SELECT nombre, cedula FROM clientes WHERE cedula = '$cedula' AND fechaNacimiento = '$fechaNacimiento'");
 
 				#Consulta SQL donde valida la cantidad de puntos
-				$sql2 = mysqli_query($con, "SELECT puntos FROM puntos WHERE cedula = '$cedula'");
+				$sql2 = mysqli_query($con, "SELECT puntos FROM puntos WHERE cedula = '$cedula' ORDER BY id desc");
 
 				#Método para validar el retorno de las filas de la BD. Valida la existencia del cliente
 				if(mysqli_num_rows($sql) > 0) {
@@ -153,7 +153,7 @@
 					
 				} else {
 					echo "<script>
-							alert('Datos erroneos. Por favor intentelo de nuevo');
+							alert('Datos erróneos. Por favor intentelo de nuevo');
 					  	 </script>";
 				}
 

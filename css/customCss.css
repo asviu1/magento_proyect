@@ -233,6 +233,14 @@ button#cronojobClose, button#puntosClose, button#archivoClose, a#closeActualizar
 	display:none;
 }
 
+p.points-update{
+	font-style: italic;
+	text-align: center;
+	margin-top: 20px;
+	color:#E00009;
+}
+
+
 /* Segunda vista Historico de puntos */
 /*************************************/
 a.a-home{

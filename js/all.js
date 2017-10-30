@@ -367,26 +367,6 @@ angular.module("ngAlertify",[]).factory("alertify",function(){"use strict";var t
     // ==============================
     // Confirm personalizado
 
-    demo("#dbOk", function (ev) {
-        alertify.confirm("Su documento está en la Base de Datos, por favor ingrese", function (ev) {
-            ev.preventDefault();
-            location.replace('login.php');
-        }, function(ev) {
-            ev.preventDefault();
-            alertify.success('Por favor verifique los datos de nuevo');
-        });
-    });
-
-    demo("#dbNo", function (ev) {
-        alertify.confirm("Su documento no existe en la Base de Datos, por favor regístrese", function (ev) {
-            ev.preventDefault();
-            location.replace('registro.php');
-        }, function(ev) {
-            ev.preventDefault();
-            alertify.success('Por favor verifique los datos de nuevo');
-        });
-    });
-
     demo("#cerrar_session", function (ev) {
         alertify.confirm("¿Desea cerrar sesión?", function (ev) {
             ev.preventDefault();

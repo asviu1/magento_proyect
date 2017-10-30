@@ -716,10 +716,15 @@ label.custom-label{
   font-style: italic;
 }
 
+.obligatorio{
+  text-transform: uppercase;
+}
+
 /* Styles of Jquery validator  */
 /******************************/
 div.form-group{
   position:relative;
+  margin-bottom:22px;
 }
 span.help-block.form-error{
   color:rgb(170,0,0);
