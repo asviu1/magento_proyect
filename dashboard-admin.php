@@ -120,7 +120,7 @@
 					</a>
 					<!-- Contenido segmentacion -->
 					<form id="form-segmentacion" method="post">
-						<textarea class="form-control" name="ganaMercaldas" placeholder="Aquí por favor coloque los terminos y condiciones..."></textarea><br>
+						<textarea class="form-control" name="ganaMercaldas" placeholder="Aquí por favor coloque los términos y condiciones..."></textarea><br>
 						<button type="submit" class="btn btn-success-mercaldas col-lg-offset-1 col-lg-4 col-md-offset-1 col-md-4 col-sm-offset-1 col-sm-4 col-xs-offset-1 col-xs-4">
 							<i class="fa fa-send"></i> Enviar
 						</button>

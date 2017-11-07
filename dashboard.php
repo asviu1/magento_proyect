@@ -14,7 +14,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head><meta http-equiv="Content-Type" content="text/html; charset=gb18030">
-	
+    
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>Dashboard</title>
 	<link rel="icon" href="imgs/favicon.png" type="img/png">
@@ -22,6 +22,8 @@
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/custom.css">
 	<link rel="stylesheet" href="css/customCss.css">
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/custom.js"></script>
 </head>
 <body onload="iniciar()" onkeypress="detener()" onclick="detener()" onmousemove="detener()">
 	<div class="container-fluid div-center">
@@ -80,7 +82,7 @@
 	        	<i class="fa fa-times"></i>
 	        </button>
 	         <p>Sesion cerrada por inactividad</p>
-	         <p>¡Gracias por visitarnos te esperamos pronto!</p>
+	         <p>Gracias por visitarnos te esperamos pronto!</p>
 	         <img class="img-responsive center-block" src="imgs/logo.png">
 	        </div>
 	       
@@ -88,9 +90,7 @@
 	    </div>
 	</div>
 	<!-- ************************************ -->
-	<script src="js/jquery-3.1.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<script src="js/custom.js"></script>
 	<script src="js/hidden_content.js"></script>
 	<script src="js/all.js"></script>
 	<script>

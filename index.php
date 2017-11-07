@@ -20,7 +20,7 @@
 		<div class="row">
 			<div class="col-lg-offset-4 col-lg-4 col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6 col-xs-offset-2 col-xs-8 div-container border-black">
 				<div class="col-lg-12 bg-img border-black"></div>
-				<h3 class="personal-document">Por favor digíte su cédula</h3>
+				<h3 class="personal-document">Por favor digite su cédula</h3>
 				<form autocomplete="off" method="post">
 					<div class="form-group">
 						<input class="form-control-custom edit-icon" placeholder="Ejemplo: 1053XXXXXX" name="cedula" type="number">

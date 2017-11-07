@@ -3,9 +3,7 @@
 
   include "conexion_bd.php";
 
-  $id = 1;
-
-  $query = mysqli_query($con, "SELECT ganaMercaldas FROM reglamento WHERE id = '$id'");
+  $query = mysqli_query($con, "SELECT ganaMercaldas FROM reglamento WHERE id = 1");
   $row = mysqli_fetch_array($query);
 
 ?>
@@ -232,17 +230,66 @@
                                 </div>
                                 <!-- Cada campo -->
                                 <div class="form-group">
-                                    <label for="fechaCumple">
+                                    <label for="fechaCumple" class="widthFull">
                                       <i class="fa fa-calendar"></i>
                                       Fecha de nacimiento
                                     </label>
-                                    <input class="form-control obligatorio" 
-                                           name="fechaCumple"
-                                           id="fechaCumple"
-                                           type="date"
-                                           placeholder="Este campo es obligatorio *"
-                                           data-validation="required"
-                                           value="1998-01-01">
+                                    <!-- Día de nacimiento -->
+                                    <!-- ***************** -->
+                                    <select name="dia" class="form-control personal-control">
+                                      <option value="default">Día</option>
+                                      <option value="01">1</option>
+                                      <option value="02">2</option>
+                                      <option value="03">3</option>
+                                      <option value="04">4</option>
+                                      <option value="05">5</option>
+                                      <option value="06">6</option>
+                                      <option value="07">7</option>
+                                      <option value="08">8</option>
+                                      <option value="09">9</option>
+                                      <option value="10">10</option>
+                                      <option value="11">11</option>
+                                      <option value="12">12</option>
+                                      <option value="13">13</option>
+                                      <option value="14">14</option>
+                                      <option value="15">15</option>
+                                      <option value="16">16</option>
+                                      <option value="17">17</option>
+                                      <option value="18">18</option>
+                                      <option value="19">19</option>
+                                      <option value="20">20</option>
+                                      <option value="21">21</option>
+                                      <option value="22">22</option>
+                                      <option value="23">23</option>
+                                      <option value="24">24</option>
+                                      <option value="25">25</option>
+                                      <option value="26">26</option>
+                                      <option value="27">27</option>
+                                      <option value="28">28</option>
+                                      <option value="29">29</option>
+                                      <option value="30">30</option>
+                                      <option value="31">31</option>
+                                    </select>
+                                    <!-- Mes de nacimiento -->
+                                    <!-- ***************** -->
+                                    <select name="mes" class="form-control personal-control">
+                                      <option value="default">Mes</option>
+                                      <option value="1">Enero</option>
+                                      <option value="2">Febrero</option>
+                                      <option value="3">Marzo</option>
+                                      <option value="4">Abril</option>
+                                      <option value="5">Mayo</option>
+                                      <option value="6">Junio</option>
+                                      <option value="7">Julio</option>
+                                      <option value="8">Agosto</option>
+                                      <option value="9">Septiembre</option>
+                                      <option value="10">Octubre</option>
+                                      <option value="11">Noviembre</option>
+                                      <option value="12">Diciembre</option>
+                                    </select>
+                                    <!-- Año de nacimiento -->
+                                    <!-- ***************** -->
+                                    <input type="number" name="ano" class="form-control personal-control" placeholder="Año">
                                 </div>
                                 <!-- Cada campo -->
                                 <div class="form-group">
@@ -267,19 +314,19 @@
                                   <select name="sucursal" id="sucursal" class="form-control">
                                       <option value="default">Seleccione una opcion...</option>
                                       <option value="8">Av. Kevin Angel</option>
-                                      <option value="14">Calleja</option>
-                                      <option value="ch">Campo Hermoso</option>
+                                      <option value="ch">Campohermoso</option>
                                       <option value="1">Centro</option>
                                       <option value="cr">Cristo Rey</option>
-                                      <option value="15">Enea</option>
                                       <option value="0">Electrodomésticos</option>
-                                      <option value="3">La fuente</option>
+                                      <option value="14">La Calleja</option>
+                                      <option value="15">La Enea</option>
+                                      <option value="3">La Fuente</option>
                                       <option value="lr">La Rochela</option>
+                                      <option value="5">Las Palmas</option>
                                       <option value="33">Neira</option>
-                                      <option value="5">Palmas</option>
                                       <option value="11">Palermo</option>
                                       <option value="52">San Marcel</option>
-                                      <option value="st">Santagueda</option>
+                                      <option value="st">Santágueda</option>
                                       <option value="2">Sultana</option>
                                       <option value="50">Versalles</option>
                                   </select>
@@ -308,7 +355,7 @@
                                 Terminos y condiciones
                               </label><br>
                             <input id="check-custom" name="try" type="checkbox" onClick="cambiaValor(this)">
-                            <input type="text" name="habeasData" id="checkboxvalidation">
+                            <input type="text" name="habeasData" id="checkboxvalidation" hidden>
                             <a class="link-custom" href="https://www.mercaldas.com.co/politica-privacidad" target="_BLANK"> Acepto términos y condiciones.
                             </a>
                             <textarea id="text-custom" cols="30" rows="5" class="form-control" readonly><?php echo utf8_decode($row['ganaMercaldas'])?></textarea>
@@ -365,56 +412,58 @@
           $email           = $_POST['email'];
           $telefono        = $_POST['telefono'];
           $celular         = $_POST['celular'];
-          $fechaCumple     = $_POST['fechaCumple'];
+          $dia             = $_POST['dia'];
+          $mes             = $_POST['mes'];
+          $ano             = $_POST['ano'];
           $nohijos         = $_POST['nohijos'];
           $sucursal        = $_POST['sucursal'];
           $sexo            = $_POST['sexo'];
           $habeasData      = $_POST['habeasData'];
           $clubVino        = $_POST['clubVino'];
           $avvillas        = $_POST['avvillas'];
-          $insertTable     = $_POST['insertTable'];
 
-          # Conversión de la variable tipo fecha a entero
-          $variable        = strtotime($fechaCumple);
+          if($ano <= 1999){
 
-          $date1 = idate('m', $variable);
+              # Condicional que los datos no vengan vacios. 
+              if($codigo != "" && $nombre != "" && $cedula != "" && $profesion != "" &&  $empresa != "" &&  $direccion != "" &&  $barrio != "" &&  $telefono != "" &&  $celular != "" &&  $dia != "default" &&  $mes != "default" &&  $ano != "" &&  $nohijos != "" &&  $sucursal != "" &&  $sexo != "default" &&  $habeasData != "0" &&  $clubVino != "" &&  $avvillas != ""){
 
-          $date2 = idate('d', $variable);
+                // Concatenación de las dos variables para que nazca la contraseña
+                $fechaNacimiento = $mes.$dia;
 
-          if($date2 <= 9 ){
-             $date2 = "0".idate('d', $variable);
-          }
+                // Concatenación de variables para que se almacene en la BD 
+                $fechaCumple = $ano.'-'.$mes.'-'.$dia;
 
-          $fechaNacimiento = $date1.$date2;
+                $sql = "INSERT INTO clientes VALUES('$codigo', '$nombre', '$cedula', '$profesion', '$empresa', '$direccion', '$barrio', '$email', '$telefono', '$celular', '$fechaNacimiento', '$fechaCumple', '$nohijos', '$sucursal', '$sexo', '$habeasData', '$clubVino', '$avvillas')";
 
-          # Condicional que los datos no vengan vacios. 
-          if($codigo != "" && $nombre != "" && $cedula != "" && $profesion != "" &&  $empresa != "" &&  $direccion != "" &&  $barrio != "" &&  $email != "" &&  $telefono != "" &&  $celular != "" &&  $fechaCumple != "" &&  $nohijos != "" &&  $sucursal != "" &&  $sexo != "default" &&  $habeasData != "0" &&  $clubVino != "" &&  $avvillas != ""){
+                    if(mysqli_query($con, $sql)){
 
-            $sql = "INSERT INTO clientes VALUES('$codigo', '$nombre', '$cedula', '$profesion', '$empresa', '$direccion', '$barrio', '$email', '$telefono', '$celular', '$fechaNacimiento', '$fechaCumple', '$nohijos', '$sucursal', '$sexo', '$habeasData', '$clubVino', '$avvillas')";
+                          #Inserción en la tabla de clientes nuevos para tener seguimiento
+                          $sql2 = "INSERT INTO clientesnuevos VALUES('$codigo', '$nombre', '$cedula', '$profesion', '$empresa', '$direccion', '$barrio', '$email', '$telefono', '$celular', '$fechaNacimiento', '$fechaCumple', '$nohijos', '$sucursal', '$sexo', '$habeasData', '$clubVino', '$avvillas')";
 
-                if(mysqli_query($con, $sql)){
+                          $query = mysqli_query($con, $sql2);
 
-                      #Inserción en la tabla de clientes nuevos para tener seguimiento
-                      $sql2 = "INSERT INTO clientesnuevos VALUES('$codigo', '$nombre', '$cedula', '$profesion', '$empresa', '$direccion', '$barrio', '$email', '$telefono', '$celular', '$fechaNacimiento', '$fechaCumple', '$nohijos', '$sucursal', '$sexo', '$habeasData', '$clubVino', '$avvillas')";
-
-                      $query = mysqli_query($con, $sql2);
-
-                   // Validación de si insertó con éxito
-                  echo "<script>
-                          alert('Se insertó con éxito');
-                          location.replace('login.php');
-                        </script>";
+                           // Validación de si insertó con éxito
+                          echo "<script>
+                                  alert('Se insertó con éxito');
+                                  location.replace('login.php');
+                                </script>";
+                    } else {
+                      echo "<script>
+                              alertify.error('Ocurrió un error al insertar. Por favor vuelva a intentarlo');
+                            </script>";
+                    }
                 } else {
-                  echo "<script>
-                          alertify.error('Ocurrió un error al insertar. Por favor vuelva a intentarlo');
-                        </script>";
-                }
+                      echo "<script>
+                              alertify.error('Campos vacíos por favor valide de nuevo');
+                            </script>";
+                  }
             } else {
-                  echo "<script>
-                          alertify.error('Campos vacíos por favor valide de nuevo');
-                        </script>";
-                }
-        }
+                      echo "<script>
+                              alertify.alert('Recuerda que debes ser mayor de edad para poder registrarte');
+                            </script>";
+              }
+
+          }
   ?>
 </body>
 </html>

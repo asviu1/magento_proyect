@@ -26,34 +26,34 @@
 
 					# Declaracion de las variables, por ; toma la posicion como arreglo
 
-					$codigo           = trim(utf8_encode($datos[0]));
-					$nombre           = trim(utf8_encode($datos[1]));
-					$cedula           = trim(utf8_encode($datos[2]));
-					$profesion        = trim(utf8_encode($datos[3]));
-					$empresa          = trim(utf8_encode($datos[4]));
-					$direccion        = trim(utf8_encode($datos[5]));
-					$barrio           = trim(utf8_encode($datos[6]));
-					$email            = trim(utf8_encode($datos[7]));
-					$telefono         = trim(utf8_encode($datos[8]));
-					$celular          = trim(utf8_encode($datos[9]));
-					$fechaNacimiento  = trim(utf8_encode($datos[10]));
-					$fechaCumple      = trim(utf8_encode($datos[11]));
-					$nohijos          = trim(utf8_encode($datos[12]));
-					$sucursal         = trim(utf8_encode($datos[13]));
-					$sexo             = trim(utf8_encode($datos[14]));
-					$habeasData       = trim(utf8_encode($datos[15]));
-					$clubVino         = trim(utf8_encode($datos[16]));
-					$avvillas         = trim(utf8_encode($datos[17]));
+					$codigo           = trim($datos[0]);
+					$nombre           = trim($datos[1]);
+					$cedula           = trim($datos[2]);
+					$profesion        = trim($datos[3]);
+					$empresa          = trim($datos[4]);
+					$direccion        = trim($datos[5]);
+					$barrio           = trim($datos[6]);
+					$email            = trim($datos[7]);
+					$telefono         = trim($datos[8]);
+					$celular          = trim($datos[9]);
+					$fechaNacimiento  = trim($datos[10]);
+					$fechaCumple      = trim($datos[11]);
+					$nohijos          = trim($datos[12]);
+					$sucursal         = trim($datos[13]);
+					$sexo             = trim($datos[14]);
+					$habeasData       = trim($datos[15]);
+					$clubVino         = trim($datos[16]);
+					$avvillas         = trim($datos[17]);
 
 					# Prueba para ver si está tomando los datos del archivo plano.
 
-					$sql = "INSERT INTO clientes VALUES('$codigo', '$nombre', '$cedula', '$profesion', '$empresa', '$direccion', '$barrio', '$email', '$telefono', '$celular', '$fechaNacimiento', '$fechaCumple', '$nohijos', '$sucursal', '$sexo', '$habeasData', '$clubVino', '$avvillas')";
+					$sql = "INSERT INTO backClientes VALUES('$codigo', '$nombre', '$cedula', '$profesion', '$empresa', '$direccion', '$barrio', '$email', '$telefono', '$celular', '$fechaNacimiento', '$fechaCumple', '$nohijos', '$sucursal', '$sexo', '$habeasData', '$clubVino', '$avvillas')";
 
 					if(mysqli_query($con, $sql)){
 						echo "<script>
-						alert('Se insertó con éxito');
-						location.replace('dashboard-admin.php');
-						</script>";
+        						alert('Se insertó con éxito');
+        						location.replace('dashboard-admin.php');
+    						  </script>";
 					} else {
 						echo "<script>
 						alert('Ocurrió un error al insertar');

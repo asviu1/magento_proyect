@@ -741,3 +741,14 @@ form input.error{
 form input.valid{
   background: rgba(0,205,0,0.15);
 }
+
+/* Lastest updates of birthday*/
+/*****************************/
+
+.widthFull{
+  width:100%;
+}
+.personal-control{
+  display: inline-block;
+  width:32.5%;
+}

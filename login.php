@@ -7,7 +7,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<title>Index</title>
+	<title>Ingreso</title>
 	<!-- Recuersos ajenos -->
 	<link rel="icon" href="imgs/favicon.png" type="img/png">
 	<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
@@ -153,7 +153,7 @@
 					
 				} else {
 					echo "<script>
-							alert('Datos erróneos. Por favor intentelo de nuevo');
+							alert('Datos erróneos, Por favor intentelo de nuevo. Nota: Si usted está diligenciando bien su fecha de nacimiento y no ingresa intente con la fecha - Enero / 1');
 					  	 </script>";
 				}
 

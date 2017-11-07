@@ -1,5 +1,7 @@
-$(document).ready(function () {
-    $('#onload').modal('hide');
+ $(document).ready(function () {
+    //  Cuando carga el sitio esconde la ventana modal
+     $('#onload').modal('hide');
+     
     //Initialize tooltips
     $('.nav-tabs > li a[title]').tooltip();
     
@@ -97,7 +99,6 @@ function nextTab(elem) {
 function prevTab(elem) {
     $(elem).prev().find('a[data-toggle="tab"]').click();
 }
-
 function iniciar(){
     timeron = setTimeout(function(){
         $('.modal').modal('show');
